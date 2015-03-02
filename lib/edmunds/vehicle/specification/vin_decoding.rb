@@ -17,7 +17,7 @@ module Edmunds
           end
 
           def self.find(vin)
-            response = Faraday.get("#{API_URL}/#{vin}/configuration", { api_key: ENV['EDMUNDS_API_KEY'] })
+            response = Faraday.get("#{API_URL}#{vin}/configuration", { api_key: ENV['EDMUNDS_API_KEY'] })
             attributes = JSON.parse(response.body)
             new(attributes)
           end
