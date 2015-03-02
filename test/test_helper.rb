@@ -1,7 +1,6 @@
 #test/test_helper.rb
-require "codeclimate-test-reporter"
-CodeClimate::TestReporter.start
 require 'coveralls'
+# Start test coverage early
 Coveralls.wear!
 require './lib/edmunds'
 require 'minitest/autorun'
