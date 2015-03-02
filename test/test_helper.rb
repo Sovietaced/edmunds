@@ -1,5 +1,8 @@
 #test/test_helper.rb
 require "codeclimate-test-reporter"
+CodeClimate::TestReporter.start
+require 'coveralls'
+Coveralls.wear!
 require './lib/edmunds'
 require 'minitest/autorun'
 require 'webmock/minitest'
@@ -21,7 +24,3 @@ VCR.configure do |c|
     sleep(1)
   end
 end
-
-# Test Coverage
-require 'coveralls'
-Coveralls.wear!
