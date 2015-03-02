@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.edmunds.com/api/vehicle/v2/vins/JHMAP11461T005905?api_key=EDMUNDS_API_KEY
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=1200
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 02 Mar 2015 06:53:58 GMT
+      Server:
+      - Apache-Coyote/1.1
+      Set-Cookie:
+      - LAX1_RSID=58b38764c2b92f8b3408f3f48a8cfce6;Max-Age=30;Path=/;Version=1;Domain=.edmunds-media.com;
+      - LAX1_RSID=58b38764c2b92f8b3408f3f48a8cfce6;Max-Age=30;Path=/;Version=1;Domain=.edmunds.com;
+      X-Environment:
+      - Prod-3
+      X-Mashery-Responder:
+      - prod-j-worker-us-east-1b-52.mashery.com
+      Content-Length:
+      - '1381'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"make":{"id":200001444,"name":"Honda","niceName":"honda"},"model":{"id":"Honda_S2000","name":"S2000","niceName":"s2000"},"engine":{"id":"200327640","name":"Engine","equipmentType":"ENGINE","availability":"STANDARD","compressionRatio":11.0,"cylinder":4,"size":2.0,"displacement":2.0,"configuration":"inline","fuelType":"premium
+        unleaded (required)","horsepower":240,"torque":153,"totalValves":16,"type":"gas","code":"4INAG2.0","compressorType":"NA"},"transmission":{"id":"200327641","name":"6M","equipmentType":"TRANSMISSION","availability":"STANDARD","transmissionType":"MANUAL","numberOfSpeeds":"6"},"drivenWheels":"rear
+        wheel drive","numOfDoors":"2","options":[],"colors":[],"manufacturerCode":"AP1141ENW","price":{"baseMSRP":32300.0,"baseInvoice":28733.0,"deliveryCharges":440.0,"usedTmvRetail":7564.0,"usedPrivateParty":5880.0,"usedTradeIn":4870.0,"estimateTmv":false,"tmvRecommendedRating":0},"categories":{"market":"Performance","EPAClass":"Two
+        Seaters","vehicleSize":"Compact","primaryBodyType":"Car","vehicleStyle":"Convertible","vehicleType":"Car"},"vin":"JHMAP11461T005905","squishVin":"JHMAP1141T","years":[{"id":100000121,"year":2001,"styles":[{"id":100001280,"name":"2dr
+        Roadster (2.0L 4cyl 6M)","submodel":{"body":"Convertible","modelName":"S2000
+        Convertible","niceName":"convertible"},"trim":"Base"}]}],"matchingType":"SQUISHVIN","MPG":{"highway":"24","city":"18"}}'
+    http_version: 
+  recorded_at: Mon, 02 Mar 2015 06:53:58 GMT
+recorded_with: VCR 2.9.3

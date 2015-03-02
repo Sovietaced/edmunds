@@ -8,6 +8,7 @@ VCR.configure do |c|
   c.cassette_library_dir = "test/fixtures"
   c.hook_into :webmock
   c.filter_sensitive_data('EDMUNDS_API_KEY') { ENV['EDMUNDS_API_KEY'] }
+
   # default quota of 2 API calls/second and 5000 API calls/day.
   # rate limit when really hitting server
   c.after_http_request(:real?)  do |request, response|
