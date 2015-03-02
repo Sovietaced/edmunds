@@ -1,8 +1,12 @@
 #test/test_helper.rb
+require "codeclimate-test-reporter"
 require './lib/edmunds'
 require 'minitest/autorun'
 require 'webmock/minitest'
 require 'vcr'
+
+# Test Coverage
+CodeClimate::TestReporter.start
 
 VCR.configure do |c|
   c.cassette_library_dir = "test/fixtures"
