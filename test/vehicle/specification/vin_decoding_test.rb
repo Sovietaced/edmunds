@@ -23,12 +23,12 @@ class DecodingVinTest < Minitest::Test
       assert_equal Edmunds::Vehicle::Specification::VinDecoding::Full, full.class
 
       # Check that the fields are accessible by our model
-      assert_equal "Honda", full.make
-      assert_equal "S2000", full.model
-      assert_equal 2001, full.year
+      assert_equal "Honda", full.make.name
+      assert_equal "S2000", full.model.name
+      assert_equal 1, full.years.count
+      assert_equal 2001, full.years[0].year
       assert_equal "18", full.mpg_city
       assert_equal "24", full.mpg_highway
-      assert_equal "Convertible", full.body
     end
   end
 end

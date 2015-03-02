@@ -11,7 +11,7 @@ module Edmunds
         class ModelYear
           attr_reader :id, :year, :styles
 
-          def initialize(attributes)
+          def initialize(attributes)  
             @id = attributes["id"]
             @year = attributes["year"]
             @styles = attributes["styles"].map {|json| Edmunds::Vehicle::Specification::Style::Style.new(json)} if attributes.key?("styles")
