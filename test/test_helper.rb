@@ -17,3 +17,7 @@ VCR.configure do |c|
     sleep(1)
   end
 end
+
+# Test Coverage
+require 'coveralls'
+Coveralls.wear!
