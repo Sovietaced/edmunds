@@ -10,10 +10,12 @@ module Edmunds
       module Make
 
         class Make
-          attr_reader :name, :models
+          attr_reader :id, :name, :models
 
           def initialize(attributes)
+            @id = attributes["id"]
             @name = attributes["name"]
+            @models = attributes["models"].map {|json| Edmunds::Vehicle::Specification::Model::Model.new(json)} if attributes.key?("models")
           end
 
           def self.find(name, api_params = {})

@@ -11,7 +11,9 @@ class MakeTest < Minitest::Test
       assert_equal Edmunds::Vehicle::Specification::Make::Make, make.class
 
       # Check that the fields are accessible by our model
+      assert_equal 200000001, make.id
       assert_equal "Audi", make.name
+      assert_equal 35, make.models.count
     end
   end
 end
