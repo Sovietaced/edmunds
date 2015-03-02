@@ -1,8 +1,9 @@
 require 'faraday'
 require 'json'
 
-MAKES_API_URL = Edmunds::Vehicle::API_URL_V2 + "/makes"
 MAKE_API_URL = Edmunds::Vehicle::API_URL_V2
+MAKES_API_URL = MAKE_API_URL + "/makes"
+MAKES_COUNT_API_URL = MAKES_API_URL + "/count"
 
 module Edmunds
   module Vehicle
@@ -34,6 +35,20 @@ module Edmunds
 
           def self.find(name, api_params = {})
             response = Edmunds::Api.get("#{MAKE_API_URL}/#{name}", api_params)
+            attributes = JSON.parse(response.body)
+            new(attributes)
+          end
+        end
+
+        class MakesCount
+          attr_reader :count
+
+          def initialize(attributes)
+            @count = attributes["makesCount"]
+          end
+
+          def self.find(api_params = {})
+            response = Edmunds::Api.get("#{MAKES_COUNT_API_URL}", api_params)
             attributes = JSON.parse(response.body)
             new(attributes)
           end
