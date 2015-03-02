@@ -3,6 +3,7 @@ Edmunds.com Ruby API Wrapper
 
 [![Codeship Status for sovietaced/edmunds](https://codeship.io/projects/d03c61a0-a2bc-0132-516c-0e0102967270/status)](https://codeship.io/projects/65819)
 [![Code Climate](https://codeclimate.com/github/Sovietaced/edmunds/badges/gpa.svg)](https://codeclimate.com/github/Sovietaced/edmunds)
+[![Gem Version](https://badge.fury.io/rb/edmunds.svg)](http://badge.fury.io/rb/edmunds)
 ## Installation
 Install the gem
 ```bash
