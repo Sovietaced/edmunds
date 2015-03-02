@@ -47,7 +47,6 @@ module Edmunds
           # @return [Basic] object holding the results of the query
           def self.find(vin)
             response = Edmunds::Api.get("#{FULL_API_URL}/#{vin}")
-            puts response.body
             attributes = JSON.parse(response.body)
             new(attributes)
           end
