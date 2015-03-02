@@ -1,7 +1,7 @@
 require 'faraday'
 require 'json'
 
-API_URL = "https://api.edmunds.com/api/v1/vehicle/vin/"
+API_URL = Edmunds::Vehicle::API_URL_V1 + "/vin/"
 
 module Edmunds
   module Vehicle
@@ -11,15 +11,14 @@ module Edmunds
           attr_reader :make, :model, :year
 
           def initialize(attributes)
-            @make = attributes["make"]
-            @model = attributes["model"]
+            @make = attributes["make"]["name"]
+            @model = attributes["model"]["name"]
             @year = attributes["year"]
           end
 
           def self.find(vin)
-            response = Faraday.get("#{API_URL}/#{vin}/configuration")
+            response = Faraday.get("#{API_URL}/#{vin}/configuration", { api_key: ENV['EDMUNDS_API_KEY'] })
             attributes = JSON.parse(response.body)
-            puts response.body
             new(attributes)
           end
         end
