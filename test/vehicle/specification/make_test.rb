@@ -16,4 +16,15 @@ class MakeTest < Minitest::Test
       assert_equal 35, make.models.count
     end
   end
+
+  def test_makes
+    VCR.use_cassette('makes') do
+      makes = Edmunds::Vehicle::Specification::Make::Makes.find()
+      assert_equal Edmunds::Vehicle::Specification::Make::Makes, makes.class
+
+
+      # Check that the fields are accessible by our model
+      assert_equal 61, makes.makes.count
+    end
+  end
 end
