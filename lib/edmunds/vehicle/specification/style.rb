@@ -45,6 +45,21 @@ module Edmunds
           end
         end
 
+        class StylesDetailsChrome
+          attr_reader :styles, :count
+
+          def initialize(attributes)
+            @count = attributes["stylesCount"]
+            @styles = attributes["styles"].map {|json| Style.new(json)} if attributes.key?("styles")
+          end
+
+          def self.find(chrome_id, api_params = {})
+            response = Edmunds::Api.get("#{BASE_API_URL}/partners/chrome/styles/#{chrome_id}", api_params)
+            attributes = JSON.parse(response.body)
+            new(attributes)
+          end
+        end
+
         class StylesCountMakeModelYear
           attr_reader :count
 

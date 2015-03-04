@@ -32,6 +32,18 @@ class StyleTest < Minitest::Test
     end
   end
 
+  # TODO: Unable to test because of public API KEY
+  # def test_styles_details_chrome
+  #   VCR.use_cassette('style_details_chrome') do
+  #     styles_details_chrome = Edmunds::Vehicle::Specification::Style::StylesDetailsChrome.find(11916)
+  #     assert_equal Edmunds::Vehicle::Specification::Style::StylesDetailsChrome, styles_details_chrome.class
+
+  #     # Check that the fields are accessible by our model
+  #     # assert_equal 21, styles_details_chrome.count
+  #     # assert_equal 21, styles_details_chrome.styles.count
+  #   end
+  # end
+
   def test_styles_count_make_model_year
     VCR.use_cassette('style_count_make_model_year') do
       styles_count_make_model_year = Edmunds::Vehicle::Specification::Style::StylesCountMakeModelYear.find("honda", "accord", 2013)
