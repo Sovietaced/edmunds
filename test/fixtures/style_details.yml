@@ -28,11 +28,10 @@ http_interactions:
       - Apache-Coyote/1.1
       Set-Cookie:
       - LAX1_RSID=dad5644335ddf0f0dede129fff5d2d9f;Max-Age=30;Path=/;Version=1;Domain=.edmunds-media.com;
-      - LAX1_RSID=dad5644335ddf0f0dede129fff5d2d9f;Max-Age=30;Path=/;Version=1;Domain=.edmunds.com;
       X-Environment:
       - Prod-3
       X-Mashery-Responder:
-      - prod-j-worker-us-east-1e-79.mashery.com
+      - prod-j-worker-us-east-1b-59.mashery.com
       Content-Length:
       - '6591'
       Connection:
@@ -83,5 +82,5 @@ http_interactions:
         4dr Sedan (2.4L 4cyl CVT)","year":{"id":100537293,"year":2013},"submodel":{"body":"Sedan","modelName":"Accord
         Sedan","niceName":"sedan"},"trim":"Sport"}],"stylesCount":21}'
     http_version: 
-  recorded_at: Wed, 04 Mar 2015 10:14:56 GMT
+  recorded_at: Wed, 04 Mar 2015 10:21:25 GMT
 recorded_with: VCR 2.9.3

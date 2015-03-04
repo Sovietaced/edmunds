@@ -30,7 +30,7 @@ module Edmunds
           end
         end
 
-        class StyleMakeModelYear
+        class StylesDetails
           attr_reader :styles, :count
 
           def initialize(attributes)
@@ -40,6 +40,20 @@ module Edmunds
 
           def self.find(make_name, model_name, model_year, api_params = {})
             response = Edmunds::Api.get("#{BASE_API_URL}/#{make_name}/#{model_name}/#{model_year}/styles", api_params)
+            attributes = JSON.parse(response.body)
+            new(attributes)
+          end
+        end
+
+        class StylesCountMakeModelYear
+          attr_reader :styles, :count
+
+          def initialize(attributes)
+            @count = attributes["stylesCount"]
+          end
+
+          def self.find(make_name, model_name, model_year, api_params = {})
+            response = Edmunds::Api.get("#{BASE_API_URL}/#{make_name}/#{model_name}/#{model_year}/styles/count", api_params)
             attributes = JSON.parse(response.body)
             new(attributes)
           end

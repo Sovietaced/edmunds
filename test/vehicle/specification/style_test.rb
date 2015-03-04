@@ -21,14 +21,24 @@ class StyleTest < Minitest::Test
     end
   end
 
-  def test_style_make_model_year
-    VCR.use_cassette('style_make_model_year') do
-      style_make_model_year = Edmunds::Vehicle::Specification::Style::StyleMakeModelYear.find("honda", "accord", 2013)
-      assert_equal Edmunds::Vehicle::Specification::Style::StyleMakeModelYear, style_make_model_year.class
+  def test_styles_details
+    VCR.use_cassette('style_details') do
+      styles_details = Edmunds::Vehicle::Specification::Style::StylesDetails.find("honda", "accord", 2013)
+      assert_equal Edmunds::Vehicle::Specification::Style::StylesDetails, styles_details.class
 
       # Check that the fields are accessible by our model
-      assert_equal 21, style_make_model_year.count
-      assert_equal 21, style_make_model_year.styles.count
+      assert_equal 21, styles_details.count
+      assert_equal 21, styles_details.styles.count
+    end
+  end
+
+  def test_styles_count_make_model_year
+    VCR.use_cassette('style_count_make_model_year') do
+      styles_count_make_model_year = Edmunds::Vehicle::Specification::Style::StylesCountMakeModelYear.find("honda", "accord", 2013)
+      assert_equal Edmunds::Vehicle::Specification::Style::StylesCountMakeModelYear, styles_count_make_model_year.class
+
+      # Check that the fields are accessible by our model
+      assert_equal 21, styles_count_make_model_year.count
     end
   end
 end
