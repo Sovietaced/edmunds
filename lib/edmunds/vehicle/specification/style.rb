@@ -87,6 +87,20 @@ module Edmunds
           end
         end
 
+        class StylesCount
+          attr_reader :count
+
+          def initialize(attributes)
+            @count = attributes["stylesCount"]
+          end
+
+          def self.find(api_params = {})
+            response = Edmunds::Api.get("#{STYLE_API_URL}/count", api_params)
+            attributes = JSON.parse(response.body)
+            new(attributes)
+          end
+        end
+
       end
     end
   end
