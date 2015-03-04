@@ -16,11 +16,14 @@ export EDMUNDS_API_KEY=<api_key>
 ```
 
 ## Usage
+The module naming scheme of this gem is inline with how the API is documented.
 ```ruby
 require 'edmunds'
 => true
 result = Edmunds::Vehicle::Specification::VinDecoding::Basic.find("JHMAP11461T005905")
 => #<Edmunds::Vehicle::Specification::VinDecoding::Basic:0x007faa2a0e4e40 @make="Honda", @model="S2000", @year=2001>
+result = Edmunds::Vehicle::Specification::Style::StylesDetails.find("honda", "s2000", 2001)
+ => #<Edmunds::Vehicle::Specification::Style::StylesDetails:0x007fbc719fd028 @count=1, @styles=[#<Edmunds::Vehicle::Specification::Style::Style:0x007fbc719fcf88 @id=100001280, @name="2dr Roadster (2.0L 4cyl 6M)", @trim="Base", @body="Convertible">]> 
 
 ```
 ## License
