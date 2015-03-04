@@ -2,6 +2,7 @@ require 'faraday'
 require 'json'
 
 MODEL_API_URL = Edmunds::Vehicle::API_URL_V2
+MODELS_API_URL = Edmunds::Vehicle::API_URL_V2
 
 module Edmunds
   module Vehicle
@@ -23,6 +24,22 @@ module Edmunds
             new(attributes)
           end
         end
+
+        class Models
+          attr_reader :models, :count
+
+          def initialize(attributes)
+            @count = attributes["modelsCount"]
+            @models = attributes["models"].map {|json| Model.new(json)} if attributes.key?("models")
+          end
+
+          def self.find(make_name, api_params = {})
+            response = Edmunds::Api.get("#{MODELS_API_URL}/#{make_name}/models", api_params)
+            attributes = JSON.parse(response.body)
+            new(attributes)
+          end
+        end
+
       end
     end
   end
