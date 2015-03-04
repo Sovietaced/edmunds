@@ -24,6 +24,21 @@ module Edmunds
           end
         end
 
+        class ModelYears
+          attr_reader :model_years, :count
+
+          def initialize(attributes)  
+            @count = attributes["yearsCount"]
+            @model_years = attributes["years"].map {|json| ModelYear.new(json)} if attributes.key?("years")
+          end
+
+          def self.find(make_name, model_name, api_params = {})
+            response = Edmunds::Api.get("#{MODEL_API_URL}/#{make_name}/#{model_name}/years", api_params)
+            attributes = JSON.parse(response.body)
+            new(attributes)
+          end
+        end
+
       end
     end
   end
