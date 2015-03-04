@@ -28,4 +28,14 @@ class ModelTest < Minitest::Test
     end
   end
 
+  def test_models_count
+    VCR.use_cassette('models_count') do
+      models_count = Edmunds::Vehicle::Specification::Model::ModelsCount.find("honda")
+      assert_equal Edmunds::Vehicle::Specification::Model::ModelsCount, models_count.class
+
+      # Check that the fields are accessible by our model
+      assert_equal 21, models_count.count
+    end
+  end
+
 end
