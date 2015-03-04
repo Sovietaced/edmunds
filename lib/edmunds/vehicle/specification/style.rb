@@ -2,6 +2,7 @@ require 'faraday'
 require 'json'
 
 STYLE_API_URL = Edmunds::Vehicle::API_URL_V2 + "/styles"
+BASE_API_URL = Edmunds::Vehicle::API_URL_V2
 
 module Edmunds
   module Vehicle
@@ -24,6 +25,21 @@ module Edmunds
 
           def self.find(id, api_params = {})
             response = Edmunds::Api.get("#{STYLE_API_URL}/#{id}", api_params)
+            attributes = JSON.parse(response.body)
+            new(attributes)
+          end
+        end
+
+        class StyleMakeModelYear
+          attr_reader :styles, :count
+
+          def initialize(attributes)
+            @count = attributes["stylesCount"]
+            @styles = attributes["styles"].map {|json| Style.new(json)} if attributes.key?("styles")
+          end
+
+          def self.find(make_name, model_name, model_year, api_params = {})
+            response = Edmunds::Api.get("#{BASE_API_URL}/#{make_name}/#{model_name}/#{model_year}/styles", api_params)
             attributes = JSON.parse(response.body)
             new(attributes)
           end
