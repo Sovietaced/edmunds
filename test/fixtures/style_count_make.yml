@@ -1,0 +1,45 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.edmunds.com/api/vehicle/v2/honda/styles/count?api_key=EDMUNDS_API_KEY
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=1200
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 04 Mar 2015 10:25:38 GMT
+      Server:
+      - Apache-Coyote/1.1
+      Set-Cookie:
+      - LAX1_RSID=16d4dfa368fcbe75d97bcafed1503500;Max-Age=30;Path=/;Version=1;Domain=.edmunds-media.com;
+      - LAX1_RSID=16d4dfa368fcbe75d97bcafed1503500;Max-Age=30;Path=/;Version=1;Domain=.edmunds.com;
+      X-Environment:
+      - Prod-3
+      X-Mashery-Responder:
+      - prod-j-worker-us-east-1d-70.mashery.com
+      Content-Length:
+      - '20'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"stylesCount":1891}'
+    http_version: 
+  recorded_at: Wed, 04 Mar 2015 10:25:38 GMT
+recorded_with: VCR 2.9.3

@@ -51,4 +51,14 @@ class StyleTest < Minitest::Test
       assert_equal 511, styles_count_make_model.count
     end
   end
+
+  def test_styles_count_make
+    VCR.use_cassette('style_count_make') do
+      styles_count_make = Edmunds::Vehicle::Specification::Style::StylesCountMake.find("honda")
+      assert_equal Edmunds::Vehicle::Specification::Style::StylesCountMake, styles_count_make.class
+
+      # Check that the fields are accessible by our model
+      assert_equal 1891, styles_count_make.count
+    end
+  end
 end
