@@ -23,6 +23,25 @@ class OptionTest < Minitest::Test
       assert_equal "18\" 5-spoke-design wheels with 245/45R18 all-season tires; 7\" color Driver Information System; MMI Navigation plus; Audi Connect with 6-month complimentary trial period data contract includes voice-activated Google Earth navigation, Google Local search, Real time Sirius traffic with 3-month complimentary subscription, myAudi destinations and rolling wi-fi hotspot; Power, heated, auto-dimming, manual folding exterior mirrors with memory; HD radio; MMI touch and Jukebox; Audi parking system plus with rearview camera; Audi advance key; Xenon plus headlights with LED daytime running lights", option.description
       assert_equal 'OPTION', option.equipment_type
       assert_equal '2.0T quattro', option.availability
+      assert_equal 'WPS', option.manufacture_option_code
+      assert_equal 'Package', option.category
+      assert_equal [{"name"=>"Navigation System", "value"=>"navigation with voice activation"},
+                    {"name"=>"Real Time Traffic", "value"=>"real time traffic"},
+                    {"name"=>"Compass", "value"=>"compass"},
+                    {"name"=>"Parking Sensors", "value"=>"front and rear parking sensors"},
+                    {"name"=>"Xenon Headlights", "value"=>"xenon high intensity discharge"},
+                    {"name"=>"Daytime Running Lights", "value"=>"daytime running lights"},
+                    {"name"=>"Exterior Camera", "value"=>"rear view camera"},
+                    {"name"=>"Power Door Locks", "value"=>"remote keyless power door locks"},
+                    {"name"=>"2 Stage Unlocking", "value"=>"remote 2-stage unlocking"},
+                    {"name"=>"Mobile Internet", "value"=>"mobile internet"},
+                    {"name"=>"Side Mirror Memory", "value"=>"includes exterior mirrors"},
+                    {"name"=>"Auto Dimming Side Mirrors", "value"=>"electrochromatic"},
+                    {"name"=>"Passenger Side Mirror Adjustment", "value"=>"power"},
+                    {"name"=>"Exterior Mirror Adjustment", "value"=>"power"},
+                    {"name"=>"Heated Exterior Mirrors", "value"=>"heated"},
+                    {"name"=>"Heated Passenger Side Mirror", "value"=>"heated"}], option.attributes
+      assert_equal [], option.equipment
     end
   end
 

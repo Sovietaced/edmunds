@@ -10,7 +10,8 @@ module Edmunds
       module Option
         
         class OptionsByStyle
-          attr_reader :options, :count
+          attr_reader :options, 
+                      :count
 
           def initialize(attributes)
             @options = attributes['options'].map { |json| Option.new(json) } if attributes.key?('options')
@@ -29,7 +30,12 @@ module Edmunds
                       :name,
                       :description,
                       :equipment_type, 
-                      :availability 
+                      :availability,
+                      :manufacture_option_name,
+                      :manufacture_option_code,
+                      :category, 
+                      :attributes,
+                      :equipment #not implemented
                       #TODO: The rest with pricing
 
           def initialize(attributes)
@@ -38,6 +44,11 @@ module Edmunds
             @description = attributes['description']
             @equipment_type = attributes['equipmentType']
             @availability = attributes['availability']
+            @manufacture_option_name = attributes['manufactureOptionName']
+            @manufacture_option_code = attributes['manufactureOptionCode']
+            @category = attributes['category']
+            @attributes = attributes['attributes']
+            @equipment = attributes['equipment']
           end
 
           def self.find(option_id, api_params = {})
