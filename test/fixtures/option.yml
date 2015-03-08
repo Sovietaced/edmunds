@@ -1,0 +1,61 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.edmunds.com/api/vehicle/v2/options/200477503?api_key=EDMUNDS_API_KEY
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=1200
+      Content-Type:
+      - application/json
+      Date:
+      - Sun, 08 Mar 2015 09:28:38 GMT
+      Server:
+      - Apache-Coyote/1.1
+      X-Mashery-Responder:
+      - prod-j-worker-us-east-1e-73.mashery.com
+      Content-Length:
+      - '1855'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"id":"200477503","name":"Premium Plus ","description":"18\" 5-spoke-design
+        wheels with 245/45R18 all-season tires; 7\" color Driver Information System;
+        MMI Navigation plus; Audi Connect with 6-month complimentary trial period
+        data contract includes voice-activated Google Earth navigation, Google Local
+        search, Real time Sirius traffic with 3-month complimentary subscription,
+        myAudi destinations and rolling wi-fi hotspot; Power, heated, auto-dimming,
+        manual folding exterior mirrors with memory; HD radio; MMI touch and Jukebox;
+        Audi parking system plus with rearview camera; Audi advance key; Xenon plus
+        headlights with LED daytime running lights","equipmentType":"OPTION","availability":"2.0T
+        quattro","price":{"baseMSRP":0.0,"baseInvoice":0.0,"estimateTmv":false},"manufactureOptionName":"Premium
+        Plus ","manufactureOptionCode":"WPS","category":"Package","attributes":[{"name":"Navigation
+        System","value":"navigation with voice activation"},{"name":"Real Time Traffic","value":"real
+        time traffic"},{"name":"Compass","value":"compass"},{"name":"Parking Sensors","value":"front
+        and rear parking sensors"},{"name":"Xenon Headlights","value":"xenon high
+        intensity discharge"},{"name":"Daytime Running Lights","value":"daytime running
+        lights"},{"name":"Exterior Camera","value":"rear view camera"},{"name":"Power
+        Door Locks","value":"remote keyless power door locks"},{"name":"2 Stage Unlocking","value":"remote
+        2-stage unlocking"},{"name":"Mobile Internet","value":"mobile internet"},{"name":"Side
+        Mirror Memory","value":"includes exterior mirrors"},{"name":"Auto Dimming
+        Side Mirrors","value":"electrochromatic"},{"name":"Passenger Side Mirror Adjustment","value":"power"},{"name":"Exterior
+        Mirror Adjustment","value":"power"},{"name":"Heated Exterior Mirrors","value":"heated"},{"name":"Heated
+        Passenger Side Mirror","value":"heated"}],"equipment":[]}'
+    http_version: 
+  recorded_at: Sun, 08 Mar 2015 09:33:05 GMT
+recorded_with: VCR 2.9.3
