@@ -19,10 +19,10 @@ class DecodingVinTest < Minitest::Test
 
   def test_basic_fail
     VCR.use_cassette('decode_basic_fail') do
-      error = assert_raises Edmunds::Api::ApiException do 
+      error = assert_raises Edmunds::Api::Exception do 
         Edmunds::Vehicle::Specification::VinDecoding::Basic.find('NOTAVIN')
       end
-      
+
       assert_equal 'INCORRECT_PARAMS', error.error_type
       assert_equal 'Invalid VIN: NOTAVIN', error.message
     end

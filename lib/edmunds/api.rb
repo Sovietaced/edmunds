@@ -10,13 +10,13 @@ module Edmunds
       response = Faraday.get(url, api_params)
 
       if not response.success?
-        raise ApiException.new(response)
+        raise Exception.new(response)
       end
 
       return response
     end
 
-    class ApiException < StandardError
+    class Exception < StandardError
       attr_reader :error_type, :message
       def initialize(response)
         error = JSON.parse(response.body)
