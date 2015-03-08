@@ -7,7 +7,23 @@ module Edmunds
     def self.get(url, api_params = {})
       api_key_hash = { api_key: ENV['EDMUNDS_API_KEY'] }
       api_params = api_params.merge(api_key_hash)
-      Faraday.get(url, api_params)
+      response = Faraday.get(url, api_params)
+
+      if not response.success?
+        raise ApiException.new(response)
+      end
+
+      return response
+    end
+
+    class ApiException < StandardError
+      attr_reader :error_type, :message
+      def initialize(response)
+        error = JSON.parse(response.body)
+
+        @error_type = error['error']['errorType']
+        @message = error['error']['message']
+      end
     end
   end
 end
