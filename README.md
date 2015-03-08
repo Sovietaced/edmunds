@@ -26,8 +26,10 @@ result = Edmunds::Vehicle::Specification::Style::StylesDetails.find("honda", "s2
  => #<Edmunds::Vehicle::Specification::Style::StylesDetails:0x007fbc719fd028 @count=1, @styles=[#<Edmunds::Vehicle::Specification::Style::Style:0x007fbc719fcf88 @id=100001280, @name="2dr Roadster (2.0L 4cyl 6M)", @trim="Base", @body="Convertible">]> 
 
 ```
+
 ## Contributors
-Feel free to fork this repository and open a pull request. If you have any questions you can contact me directly [here](https://twitter.com/Sovietaced).
+Feel free to fork this repository and open a pull request. 
+If you have any questions you can open an issue or contact me directly [here](https://twitter.com/Sovietaced).
 
 ## License
 
