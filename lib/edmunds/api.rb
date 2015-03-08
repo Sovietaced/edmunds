@@ -1,7 +1,6 @@
 module Edmunds
   module Api
-
-    URL = "https://api.edmunds.com/api"
+    URL = 'https://api.edmunds.com/api'
     URL_V1 = "#{URL}/v1"
 
     # Wrapper around Faraday.get that passses the API key
@@ -10,6 +9,5 @@ module Edmunds
       api_params = api_params.merge(api_key_hash)
       Faraday.get(url, api_params)
     end
-
   end
 end

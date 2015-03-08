@@ -2,19 +2,18 @@ require 'faraday'
 require 'json'
 
 MAKE_API_URL = Edmunds::Vehicle::API_URL_V2
-MAKES_API_URL = MAKE_API_URL + "/makes"
-MAKES_COUNT_API_URL = MAKES_API_URL + "/count"
+MAKES_API_URL = MAKE_API_URL + '/makes'
+MAKES_COUNT_API_URL = MAKES_API_URL + '/count'
 
 module Edmunds
   module Vehicle
     module Specification
       module Make
-
         class Makes
           attr_reader :makes
 
           def initialize(attributes)
-           @makes = attributes["makes"].map {|json| Make.new(json)} if attributes.key?("makes")
+            @makes = attributes['makes'].map { |json| Make.new(json) } if attributes.key?('makes')
           end
 
           def self.find(api_params = {})
@@ -28,9 +27,9 @@ module Edmunds
           attr_reader :id, :name, :models
 
           def initialize(attributes)
-            @id = attributes["id"]
-            @name = attributes["name"]
-            @models = attributes["models"].map {|json| Edmunds::Vehicle::Specification::Model::Model.new(json)} if attributes.key?("models")
+            @id = attributes['id']
+            @name = attributes['name']
+            @models = attributes['models'].map { |json| Edmunds::Vehicle::Specification::Model::Model.new(json) } if attributes.key?('models')
           end
 
           def self.find(name, api_params = {})
@@ -44,7 +43,7 @@ module Edmunds
           attr_reader :count
 
           def initialize(attributes)
-            @count = attributes["makesCount"]
+            @count = attributes['makesCount']
           end
 
           def self.find(api_params = {})
@@ -53,7 +52,6 @@ module Edmunds
             new(attributes)
           end
         end
-
       end
     end
   end

@@ -7,14 +7,13 @@ module Edmunds
   module Vehicle
     module Specification
       module Model
-
         class Model
           attr_reader :id, :name, :years
 
           def initialize(attributes)
-            @id = attributes["id"]
-            @name = attributes["name"]
-            @years = attributes["years"].map {|json| Edmunds::Vehicle::Specification::ModelYear::ModelYear.new(json)} if attributes.key?("years")
+            @id = attributes['id']
+            @name = attributes['name']
+            @years = attributes['years'].map { |json| Edmunds::Vehicle::Specification::ModelYear::ModelYear.new(json) } if attributes.key?('years')
           end
 
           def self.find(make_name, model_name, api_params = {})
@@ -28,8 +27,8 @@ module Edmunds
           attr_reader :models, :count
 
           def initialize(attributes)
-            @count = attributes["modelsCount"]
-            @models = attributes["models"].map {|json| Model.new(json)} if attributes.key?("models")
+            @count = attributes['modelsCount']
+            @models = attributes['models'].map { |json| Model.new(json) } if attributes.key?('models')
           end
 
           def self.find(make_name, api_params = {})
@@ -43,7 +42,7 @@ module Edmunds
           attr_reader :count
 
           def initialize(attributes)
-            @count = attributes["modelsCount"]
+            @count = attributes['modelsCount']
           end
 
           def self.find(make_name, api_params = {})
@@ -52,7 +51,6 @@ module Edmunds
             new(attributes)
           end
         end
-
       end
     end
   end

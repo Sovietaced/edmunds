@@ -7,11 +7,11 @@ class ModelYearTest < Minitest::Test
 
   def test_model_year
     VCR.use_cassette('model_year') do
-      model_year = Edmunds::Vehicle::Specification::ModelYear::ModelYear.find("honda", "accord", 2013)
+      model_year = Edmunds::Vehicle::Specification::ModelYear::ModelYear.find('honda', 'accord', 2013)
       assert_equal Edmunds::Vehicle::Specification::ModelYear::ModelYear, model_year.class
 
       # Check that the fields are accessible by our model
-      assert_equal 100537293, model_year.id
+      assert_equal 100_537_293, model_year.id
       assert_equal 2013, model_year.year
       assert_equal 21, model_year.styles.count
     end
@@ -19,7 +19,7 @@ class ModelYearTest < Minitest::Test
 
   def test_model_years
     VCR.use_cassette('model_years') do
-      model_years = Edmunds::Vehicle::Specification::ModelYear::ModelYears.find("honda", "accord")
+      model_years = Edmunds::Vehicle::Specification::ModelYear::ModelYears.find('honda', 'accord')
       assert_equal Edmunds::Vehicle::Specification::ModelYear::ModelYears, model_years.class
 
       # Check that the fields are accessible by our model
@@ -30,7 +30,7 @@ class ModelYearTest < Minitest::Test
 
   def test_model_years_count
     VCR.use_cassette('model_years_count') do
-      model_years_count = Edmunds::Vehicle::Specification::ModelYear::ModelYearsCount.find("honda", "accord")
+      model_years_count = Edmunds::Vehicle::Specification::ModelYear::ModelYearsCount.find('honda', 'accord')
       assert_equal Edmunds::Vehicle::Specification::ModelYear::ModelYearsCount, model_years_count.class
 
       # Check that the fields are accessible by our model
