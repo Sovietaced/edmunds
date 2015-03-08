@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [0.0.5] - 03/8/2015
+### Added
+- Completed Support for color/option APIs
+- Error Handling
+
 ## [0.0.4] - 03/4/2015
 ### Added
 - Completed Support for make/model/model year/style APIs
