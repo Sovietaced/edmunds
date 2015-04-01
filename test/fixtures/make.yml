@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.edmunds.com/api/vehicle/v2/audi?api_key=EDMUNDS_API_KEY
+    uri: https://api.edmunds.com/api/vehicle/v2/audi?api_key=EDMUNDS_API_KEY&fmt=json&view=basic
     body:
       encoding: US-ASCII
       string: ''
@@ -23,24 +23,24 @@ http_interactions:
       Content-Type:
       - application/json
       Date:
-      - Mon, 02 Mar 2015 07:21:33 GMT
+      - Wed, 01 Apr 2015 08:53:36 GMT
       Server:
       - Apache-Coyote/1.1
       Set-Cookie:
-      - LAX1_RSID=23d2b3b36777608484c0d75ebd3a5dd4;Max-Age=30;Path=/;Version=1;Domain=.edmunds-media.com;
-      - LAX1_RSID=23d2b3b36777608484c0d75ebd3a5dd4;Max-Age=30;Path=/;Version=1;Domain=.edmunds.com;
+      - LAX1_RSID=15f5890455c095f1759aec2bd7276d0c;Max-Age=30;Path=/;Version=1;Domain=.edmunds-media.com;
+      - LAX1_RSID=15f5890455c095f1759aec2bd7276d0c;Max-Age=30;Path=/;Version=1;Domain=.edmunds.com;
       X-Environment:
-      - Prod-3
+      - Prod-2
       X-Mashery-Responder:
-      - prod-j-worker-us-east-1e-71.mashery.com
+      - prod-j-worker-us-east-1b-76.mashery.com
       Content-Length:
-      - '8696'
+      - '8725'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
       string: '{"id":200000001,"name":"Audi","niceName":"audi","models":[{"id":"Audi_100","name":"100","niceName":"100","years":[{"id":3295,"year":1990},{"id":897,"year":1991},{"id":3296,"year":1992},{"id":3297,"year":1993},{"id":3298,"year":1994}]},{"id":"Audi_200","name":"200","niceName":"200","years":[{"id":3300,"year":1990},{"id":3301,"year":1991}]},{"id":"Audi_80","name":"80","niceName":"80","years":[{"id":3303,"year":1990},{"id":3304,"year":1991},{"id":898,"year":1992}]},{"id":"Audi_90","name":"90","niceName":"90","years":[{"id":3306,"year":1990},{"id":899,"year":1991},{"id":3307,"year":1993},{"id":3308,"year":1994},{"id":900,"year":1995}]},{"id":"Audi_A3","name":"A3","niceName":"a3","years":[{"id":100504284,"year":2006},{"id":100516961,"year":2007},{"id":100523189,"year":2008},{"id":100523689,"year":2009},{"id":100527411,"year":2010},{"id":100529569,"year":2011},{"id":100535009,"year":2012},{"id":200421449,"year":2013},{"id":200466755,"year":2015},{"id":200694130,"year":2016}]},{"id":"Audi_A4","name":"A4","niceName":"a4","years":[{"id":3309,"year":1996},{"id":3310,"year":1997},{"id":901,"year":1998},{"id":962,"year":1999},{"id":1082,"year":2000},{"id":100000016,"year":2001},{"id":100000447,"year":2002},{"id":100502715,"year":2003},{"id":100502966,"year":2004},{"id":100504283,"year":2005},{"id":100504904,"year":2006},{"id":100507099,"year":2007},{"id":100506025,"year":2008},{"id":100523193,"year":2009},{"id":100528170,"year":2010},{"id":100532469,"year":2011},{"id":100535609,"year":2012},{"id":200421515,"year":2013},{"id":200477384,"year":2014},{"id":200701686,"year":2015}]},{"id":"Audi_A5","name":"A5","niceName":"a5","years":[{"id":100512999,"year":2008},{"id":100525831,"year":2009},{"id":100527489,"year":2010},{"id":100532509,"year":2011},{"id":100535610,"year":2012},{"id":200421364,"year":2013},{"id":200478242,"year":2014},{"id":200702231,"year":2015},{"id":200705417,"year":2016}]},{"id":"Audi_A6","name":"A6","niceName":"a6","years":[{"id":3311,"year":1995},{"id":902,"year":1996},{"id":3312,"year":1997},{"id":3313,"year":1998},{"id":3415,"year":1999},{"id":1085,"year":2000},{"id":100000017,"year":2001},{"id":100000448,"year":2002},{"id":100502716,"year":2003},{"id":100503528,"year":2004},{"id":100503249,"year":2005},{"id":100506112,"year":2006},{"id":100519161,"year":2007},{"id":100523699,"year":2008},{"id":100526829,"year":2009},{"id":100528172,"year":2010},{"id":100532629,"year":2011},{"id":100532549,"year":2012},{"id":200422409,"year":2013},{"id":200477462,"year":2014},{"id":200703020,"year":2015},{"id":200721615,"year":2016}]},{"id":"Audi_A7","name":"A7","niceName":"a7","years":[{"id":100530769,"year":2012},{"id":200423029,"year":2013},{"id":200479501,"year":2014},{"id":200703192,"year":2015},{"id":200721614,"year":2016}]},{"id":"Audi_A8","name":"A8","niceName":"a8","years":[{"id":903,"year":1997},{"id":3314,"year":1998},{"id":3416,"year":1999},{"id":384,"year":2000},{"id":100000015,"year":2001},{"id":100000449,"year":2002},{"id":100502717,"year":2003},{"id":100502933,"year":2004},{"id":100503880,"year":2005},{"id":100506113,"year":2006},{"id":100516962,"year":2007},{"id":100524092,"year":2008},{"id":100526052,"year":2009},{"id":100512963,"year":2010},{"id":100529570,"year":2011},{"id":100535611,"year":2012},{"id":200421092,"year":2013},{"id":200465834,"year":2014},{"id":200484089,"year":2015}]},{"id":"Audi_Cabriolet","name":"Cabriolet","niceName":"cabriolet","years":[{"id":3315,"year":1994},{"id":3316,"year":1995},{"id":3317,"year":1996},{"id":3318,"year":1997},{"id":3319,"year":1998}]},{"id":"Audi_Coupe","name":"Coupe","niceName":"coupe","years":[{"id":3320,"year":1990},{"id":904,"year":1991}]},{"id":"Audi_Q1","name":"Q1","niceName":"q1","years":[{"id":200497992,"year":2016}]},{"id":"Audi_Q3","name":"Q3","niceName":"q3","years":[{"id":200673751,"year":2015}]},{"id":"Audi_Q5","name":"Q5","niceName":"q5","years":[{"id":100527349,"year":2009},{"id":100505585,"year":2010},{"id":100532630,"year":2011},{"id":100535612,"year":2012},{"id":200437177,"year":2013},{"id":200478681,"year":2014},{"id":200702779,"year":2015}]},{"id":"Audi_Q7","name":"Q7","niceName":"q7","years":[{"id":100503511,"year":2007},{"id":100520129,"year":2008},{"id":100522688,"year":2009},{"id":100527830,"year":2010},{"id":100532670,"year":2011},{"id":100535613,"year":2012},{"id":200423236,"year":2013},{"id":200480008,"year":2014},{"id":200703519,"year":2015},{"id":200725613,"year":2016}]},{"id":"Audi_Q7_e_tron","name":"Q7
-        e-tron","niceName":"q7-e-tron","years":[{"id":200722740,"year":2016}]},{"id":"Audi_R8","name":"R8","niceName":"r8","years":[{"id":100503510,"year":2008},{"id":100522672,"year":2009},{"id":100528177,"year":2010},{"id":100531251,"year":2011},{"id":100531909,"year":2012},{"id":200460093,"year":2014},{"id":200703706,"year":2015}]},{"id":"Audi_RS_4","name":"RS
+        e-tron","niceName":"q7-e-tron","years":[{"id":200722740,"year":2016}]},{"id":"Audi_R8","name":"R8","niceName":"r8","years":[{"id":100503510,"year":2008},{"id":100522672,"year":2009},{"id":100528177,"year":2010},{"id":100531251,"year":2011},{"id":100531909,"year":2012},{"id":200460093,"year":2014},{"id":200703706,"year":2015},{"id":200728745,"year":2016}]},{"id":"Audi_RS_4","name":"RS
         4","niceName":"rs-4","years":[{"id":100507539,"year":2007},{"id":100523209,"year":2008}]},{"id":"Audi_RS_5","name":"RS
         5","niceName":"rs-5","years":[{"id":100536869,"year":2013},{"id":200459107,"year":2014},{"id":200702703,"year":2015}]},{"id":"Audi_RS_6","name":"RS
         6","niceName":"rs-6","years":[{"id":100502940,"year":2003}]},{"id":"Audi_RS_7","name":"RS
@@ -48,5 +48,5 @@ http_interactions:
         RS","niceName":"tt-rs","years":[{"id":100533489,"year":2012},{"id":200423952,"year":2013}]},{"id":"Audi_TTS","name":"TTS","niceName":"tts","years":[{"id":100520101,"year":2009},{"id":100529129,"year":2010},{"id":100532609,"year":2011},{"id":100535617,"year":2012},{"id":200423867,"year":2013},{"id":200481079,"year":2014},{"id":200677718,"year":2015}]},{"id":"Audi_V8","name":"V8","niceName":"v8","years":[{"id":906,"year":1990},{"id":3325,"year":1991},{"id":3326,"year":1992},{"id":907,"year":1993},{"id":3327,"year":1994}]},{"id":"Audi_allroad","name":"allroad","niceName":"allroad","years":[{"id":100539196,"year":2013},{"id":200477671,"year":2014},{"id":200702085,"year":2015}]},{"id":"Audi_allroad_quattro","name":"allroad
         quattro","niceName":"allroad-quattro","years":[{"id":100000014,"year":2001},{"id":100000453,"year":2002},{"id":100502718,"year":2003},{"id":100503529,"year":2004},{"id":100504962,"year":2005}]}]}'
     http_version: 
-  recorded_at: Mon, 02 Mar 2015 07:21:34 GMT
+  recorded_at: Wed, 01 Apr 2015 08:53:36 GMT
 recorded_with: VCR 2.9.3

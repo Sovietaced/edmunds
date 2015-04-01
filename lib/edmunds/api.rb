@@ -4,10 +4,10 @@ module Edmunds
     URL_V1 = "#{URL}/v1"
 
     # Wrapper around Faraday.get that passses the API key
-    def self.get(url, api_params = {})
-      api_key_hash = { api_key: ENV['EDMUNDS_API_KEY'] }
-      api_params = api_params.merge(api_key_hash)
-      response = Faraday.get(url, api_params)
+    def self.get(url)
+      request = Request.new(url)
+      yield request
+      response = request.get
 
       if not response.success?
         raise Exception.new(response)

@@ -17,7 +17,21 @@ module Edmunds
           end
 
           def self.find(api_params = {})
-            response = Edmunds::Api.get("#{MAKES_API_URL}", api_params)
+            response = Edmunds::Api.get("#{MAKES_API_URL}") do |request|
+              request.raw_parameters = api_params
+
+              request.allowed_parameters = {
+                  state: %w[new used future],
+                  year:  ((1990.to_s)..(Date.current.year.to_s)),
+                  view:  %w[basic full],
+                  fmt: %w[json]
+              }
+
+              request.default_parameters = { view: 'basic', fmt: 'json' }
+
+              request.required_parameters = %w[fmt]
+            end
+
             attributes = JSON.parse(response.body)
             new(attributes)
           end
@@ -33,7 +47,21 @@ module Edmunds
           end
 
           def self.find(name, api_params = {})
-            response = Edmunds::Api.get("#{MAKE_API_URL}/#{name}", api_params)
+            response = Edmunds::Api.get("#{MAKE_API_URL}/#{name}") do |request|
+              request.raw_parameters = api_params
+
+              request.allowed_parameters = {
+                  state: %w[new used future],
+                  year: ((1990.to_s)..(Date.today.year.to_s)),
+                  view: %w[basic full],
+                  fmt: %w[json]
+              }
+
+              request.default_parameters = { view: 'basic', fmt: 'json' }
+
+              request.required_parameters = %w[fmt]
+            end
+
             attributes = JSON.parse(response.body)
             new(attributes)
           end
@@ -47,7 +75,23 @@ module Edmunds
           end
 
           def self.find(api_params = {})
-            response = Edmunds::Api.get("#{MAKES_COUNT_API_URL}", api_params)
+            response = Edmunds::Api.get("#{MAKES_COUNT_API_URL}") do |request|
+            
+              request.raw_parameters = api_params
+
+              request.allowed_parameters = {
+                  state: %w[new used future],
+                  year: ((1990.to_s)..(Date.today.year.to_s)),
+                  view: %w[basic full],
+                  fmt: %w[json]
+              }
+
+              request.default_parameters = { view: 'basic', fmt: 'json' }
+
+              request.required_parameters = %w[fmt]
+            end
+
+
             attributes = JSON.parse(response.body)
             new(attributes)
           end
