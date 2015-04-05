@@ -17,7 +17,23 @@ module Edmunds
           end
 
           def self.find(make_name, model_name, api_params = {})
-            response = Edmunds::Api.get("#{MODEL_API_URL}/#{make_name}/#{model_name}", api_params)
+            response = Edmunds::Api.get("#{MODEL_API_URL}/#{make_name}/#{model_name}") do |request|
+              request.raw_parameters = api_params
+
+              request.allowed_parameters = {
+                submodel: Edmunds::Vehicle::SUBMODEL_REGEX,
+                category: Edmunds::Vehicle::VEHICLE_CATEGORIES,
+                state: %w[new used future],
+                year: ((1990.to_s)..(Date.current.year.to_s)),
+                view: %w[basic full],
+                fmt:  %w[json]
+              }
+
+              request.default_parameters = { view: 'basic', fmt: 'json' }
+
+              request.required_parameters = %w[fmt]
+            end
+
             attributes = JSON.parse(response.body)
             new(attributes)
           end
@@ -32,7 +48,23 @@ module Edmunds
           end
 
           def self.find(make_name, api_params = {})
-            response = Edmunds::Api.get("#{MODEL_API_URL}/#{make_name}/models", api_params)
+            response = Edmunds::Api.get("#{MODEL_API_URL}/#{make_name}/models") do |request|
+              request.raw_parameters = api_params
+
+              request.allowed_parameters = {
+                submodel: Edmunds::Vehicle::SUBMODEL_REGEX,
+                category: Edmunds::Vehicle::VEHICLE_CATEGORIES,
+                state: %w[new used future],
+                year: ((1990.to_s)..(Date.current.year.to_s)),
+                view: %w[basic full],
+                fmt:  %w[json]
+              }
+
+              request.default_parameters = { view: 'basic', fmt: 'json' }
+
+              request.required_parameters = %w[fmt]
+            end
+
             attributes = JSON.parse(response.body)
             new(attributes)
           end
@@ -46,7 +78,23 @@ module Edmunds
           end
 
           def self.find(make_name, api_params = {})
-            response = Edmunds::Api.get("#{MODEL_API_URL}/#{make_name}/models/count", api_params)
+            response = Edmunds::Api.get("#{MODEL_API_URL}/#{make_name}/models/count") do |request|
+              request.raw_parameters = api_params
+
+              request.allowed_parameters = {
+                submodel: Edmunds::Vehicle::SUBMODEL_REGEX,
+                category: Edmunds::Vehicle::VEHICLE_CATEGORIES,
+                state: %w[new used future],
+                year: ((1990.to_s)..(Date.current.year.to_s)),
+                view: %w[basic full],
+                fmt:  %w[json]
+              }
+
+              request.default_parameters = { view: 'basic', fmt: 'json' }
+
+              request.required_parameters = %w[fmt]
+            end
+
             attributes = JSON.parse(response.body)
             new(attributes)
           end
