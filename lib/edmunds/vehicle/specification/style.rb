@@ -23,7 +23,19 @@ module Edmunds
           end
 
           def self.find(id, api_params = {})
-            response = Edmunds::Api.get("#{STYLE_API_URL}/#{id}", api_params)
+            response = Edmunds::Api.get("#{STYLE_API_URL}/#{id}") do |request|
+              request.raw_parameters = api_params
+
+              request.allowed_parameters = {
+                view: %w[basic full],
+                fmt:  %w[json]
+              }
+
+              request.default_parameters = { view: 'basic', fmt: 'json' }
+
+              request.required_parameters = %w[fmt]
+            end
+
             attributes = JSON.parse(response.body)
             new(attributes)
           end
@@ -38,12 +50,29 @@ module Edmunds
           end
 
           def self.find(make_name, model_name, model_year, api_params = {})
-            response = Edmunds::Api.get("#{BASE_API_URL}/#{make_name}/#{model_name}/#{model_year}/styles", api_params)
+            response = Edmunds::Api.get("#{BASE_API_URL}/#{make_name}/#{model_name}/#{model_year}/styles") do |request|
+              request.raw_parameters = api_params
+
+              request.allowed_parameters = {
+                submodel: Edmunds::Vehicle::SUBMODEL_REGEX,
+                category: Edmunds::Vehicle::VEHICLE_CATEGORIES,
+                state: %w[new used future],
+                year: ((1990.to_s)..(Date.current.year.to_s)),
+                view: %w[basic full],
+                fmt:  %w[json]
+              }
+
+              request.default_parameters = { view: 'basic', fmt: 'json' }
+
+              request.required_parameters = %w[fmt]
+            end
+
             attributes = JSON.parse(response.body)
             new(attributes)
           end
         end
 
+        # TODO
         # UNAUTHORIZED
         # class StylesDetailsChrome
         #   attr_reader :styles, :count
@@ -68,7 +97,19 @@ module Edmunds
           end
 
           def self.find(make_name, model_name, model_year, api_params = {})
-            response = Edmunds::Api.get("#{BASE_API_URL}/#{make_name}/#{model_name}/#{model_year}/styles/count", api_params)
+            response = Edmunds::Api.get("#{BASE_API_URL}/#{make_name}/#{model_name}/#{model_year}/styles/count") do |request|
+              request.raw_parameters = api_params
+
+              request.allowed_parameters = {
+                state: %w[new used future],
+                fmt:  %w[json]
+              }
+
+              request.default_parameters = { fmt: 'json' }
+
+              request.required_parameters = %w[fmt]
+            end
+
             attributes = JSON.parse(response.body)
             new(attributes)
           end
@@ -82,7 +123,20 @@ module Edmunds
           end
 
           def self.find(make_name, model_name, api_params = {})
-            response = Edmunds::Api.get("#{BASE_API_URL}/#{make_name}/#{model_name}/styles/count", api_params)
+            response = Edmunds::Api.get("#{BASE_API_URL}/#{make_name}/#{model_name}/styles/count") do |request|
+
+              request.raw_parameters = api_params
+
+              request.allowed_parameters = {
+                state: %w[new used future],
+                fmt:  %w[json]
+              }
+
+              request.default_parameters = { fmt: 'json' }
+
+              request.required_parameters = %w[fmt]
+            end
+
             attributes = JSON.parse(response.body)
             new(attributes)
           end
@@ -96,7 +150,19 @@ module Edmunds
           end
 
           def self.find(make_name, api_params = {})
-            response = Edmunds::Api.get("#{BASE_API_URL}/#{make_name}/styles/count", api_params)
+            response = Edmunds::Api.get("#{BASE_API_URL}/#{make_name}/styles/count") do |request|
+              request.raw_parameters = api_params
+
+              request.allowed_parameters = {
+                state: %w[new used future],
+                fmt:  %w[json]
+              }
+
+              request.default_parameters = { fmt: 'json' }
+
+              request.required_parameters = %w[fmt]
+            end
+
             attributes = JSON.parse(response.body)
             new(attributes)
           end
@@ -110,7 +176,19 @@ module Edmunds
           end
 
           def self.find(api_params = {})
-            response = Edmunds::Api.get("#{STYLE_API_URL}/count", api_params)
+            response = Edmunds::Api.get("#{STYLE_API_URL}/count") do |request|
+              request.raw_parameters = api_params
+
+              request.allowed_parameters = {
+                state: %w[new used future],
+                fmt:  %w[json]
+              }
+
+              request.default_parameters = { fmt: 'json' }
+
+              request.required_parameters = %w[fmt]
+            end
+
             attributes = JSON.parse(response.body)
             new(attributes)
           end
