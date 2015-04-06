@@ -9,6 +9,7 @@ require_relative 'edmunds/vehicle/specification/style'
 require_relative 'edmunds/vehicle/specification/color'
 require_relative 'edmunds/vehicle/specification/option'
 require_relative 'edmunds/vehicle/specification/vin_decoding'
+require_relative 'edmunds/vehicle/specification/equipment'
 
 module Edmunds
 end

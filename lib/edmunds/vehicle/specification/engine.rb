@@ -1,15 +1,15 @@
 require 'faraday'
 require 'json'
 
-EQUIPMENT_API_URL = Edmunds::Vehicle::API_URL_V2 + '/equipment'
-STYLES_API_URL = Edmunds::Vehicle::API_URL_V2 + '/styles'
+ENGINE_API_URL = Edmunds::Vehicle::API_URL_V2 + '/engines'
+STYLE_API_URL = Edmunds::Vehicle::API_URL_V2 + '/styles'
 
 module Edmunds
   module Vehicle
     module Specification
-      module Equipment
+      module Engine
         
-        class EquipmentByStyle
+        class EngineByStyle
           attr_reader :id
 
           def initialize(attributes)
@@ -18,17 +18,16 @@ module Edmunds
           end
 
           def self.find(style_id, api_params = {})
-            response = Edmunds::Api.get("#{STYLES_API_URL}/#{style_id}/equipment") do |request|
+            response = Edmunds::Api.get("#{STYLE_API_URL}/#{style_id}/engines") do |request|
               request.raw_parameters = api_params
 
               request.allowed_parameters = {
-                availability: Edmunds::Vehicle::EQUIPMENT_AVAILABILITY, 
-                equipmentType: Edmunds::Vehicle::EQUIPMENT_TYPE,
-                name: Edmunds::Vehicle::EQUIPMENT_NAME,
+                availability: Edmunds::Vehicle::ENGINE_AVAILABILITY, 
+                name: /^s+/,
                 fmt:  %w[json]
               }
 
-              request.default_parameters = { fmt: 'json', availability: 'standard', equipmentType: 'OTHER' }
+              request.default_parameters = { fmt: 'json', availability: 'standard' }
 
               request.required_parameters = %w[fmt]
             end
@@ -38,7 +37,7 @@ module Edmunds
           end
         end
 
-        class Equipment
+        class Engine
           attr_reader :id
 
           def initialize(attributes)
@@ -46,8 +45,8 @@ module Edmunds
             #TODO
           end
 
-          def self.find(equipment_id, api_params = {})
-            response = Edmunds::Api.get("#{EQUIPMENT_API_URL}/#{equipment_id}") do |request|
+          def self.find(engine_id, api_params = {})
+            response = Edmunds::Api.get("#{ENGINE_API_URL}/#{engine_id}") do |request|
               request.raw_parameters = api_params
 
               request.allowed_parameters = {
