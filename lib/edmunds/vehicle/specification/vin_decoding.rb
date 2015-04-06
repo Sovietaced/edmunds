@@ -21,8 +21,11 @@ module Edmunds
           #
           # @param [String] vin number of the vehicle to search for
           # @return [Basic] object holding the results of the query
-          def self.find(vin)
-            response = Edmunds::Api.get("#{BASIC_API_URL}/#{vin}/configuration")
+          def self.find(vin, api_params = {})
+            response = Edmunds::Api.get("#{BASIC_API_URL}/#{vin}/configuration") do |request|
+              request.raw_parameters = api_params
+            end
+
             attributes = JSON.parse(response.body)
             new(attributes)
           end
@@ -43,8 +46,20 @@ module Edmunds
           #
           # @param [String] vin number of the vehicle to search for
           # @return [Basic] object holding the results of the query
-          def self.find(vin)
-            response = Edmunds::Api.get("#{FULL_API_URL}/#{vin}")
+          def self.find(vin, api_params = {})
+            response = Edmunds::Api.get("#{FULL_API_URL}/#{vin}") do |request|
+              request.raw_parameters = api_params
+
+              request.allowed_parameters = {
+                # OEM CODE
+                fmt:  %w[json]
+              }
+
+              request.default_parameters = {fmt: 'json' }
+
+              request.required_parameters = %w[fmt]
+            end
+
             attributes = JSON.parse(response.body)
             new(attributes)
           end
