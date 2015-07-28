@@ -9,13 +9,21 @@ module Edmunds
     module Specification
       module Style
         class Style
-          attr_reader :id, :name, :trim, :body, :year, :make_name, :model_name
+          attr_reader :id, :name, :trim, :body, :year, :make_name, :model_name, :engine, :transmission, :driven_wheels, :colors, :options
 
-          def initialize(attributes)
+          def initialize(attributes, view = nil)
             @id = attributes['id']
             @name = attributes['name']
             @trim = attributes['trim']
             @body = attributes['submodel']['body']
+
+            if view == 'full'
+              @engine         = Edmunds::Vehicle::Specification::Engine::Engine.new(attributes['engine'])
+              @transmission   = Edmunds::Vehicle::Specification::Transmission::Transmission.new(attributes['transmission'])
+              @driven_wheels  = Edmunds::Vehicle::Specification::Drivetrain::Drivetrain.new(attributes['drivenWheels'])
+              @colors         = Edmunds::Vehicle::Specification::Color::ColorsByStyle.new(attributes)
+              @options        = Edmunds::Vehicle::Specification::Option::OptionsByStyle.new(attributes)
+            end
             # TODO: Not sure whether this is valuable or not to expose...
             # @year = attributes["year"]["year"]
             # @make_name = attributes["make"]["name"]
@@ -37,7 +45,7 @@ module Edmunds
             end
 
             attributes = JSON.parse(response.body)
-            new(attributes)
+            new(attributes, api_params[:view])
           end
         end
 

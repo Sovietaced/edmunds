@@ -8,6 +8,8 @@ module Edmunds
 
       def initialize(path)
         @path = path
+        @allowed_parameters = {}
+        @default_parameters = {}
       end
 
       def parameters
@@ -22,6 +24,7 @@ module Edmunds
 
       def sanitized_parameters
         @allowed_parameters = @allowed_parameters.with_indifferent_access
+
         params = @raw_parameters.with_indifferent_access
 
         # merge in default parameters
@@ -41,6 +44,7 @@ module Edmunds
       end
 
       def check_required(params)
+        return params if params.empty?
         @required_parameters.each do |param|
           raise "missing required parameter #{param}" if params[param].blank?
         end
@@ -48,6 +52,7 @@ module Edmunds
       end
 
       def check_values(params)
+        return params if params.empty?
         params.each do |param, value|
           raise "bad parameter value #{value} for param #{param}" unless valid_param?(param, value)
         end

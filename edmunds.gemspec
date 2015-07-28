@@ -27,5 +27,5 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'faraday'
   spec.add_dependency 'json'
-  spec.add_dependency 'active_support'
+  # spec.add_dependency 'active_support'
 end

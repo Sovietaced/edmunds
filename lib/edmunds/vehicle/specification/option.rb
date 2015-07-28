@@ -10,12 +10,27 @@ module Edmunds
       module Option
         
         class OptionsByStyle
-          attr_reader :options, 
-                      :count
+          attr_reader :interior, :exterior, :roof, :interior_trim, :mechanical, :package, :additional_fees, :other
 
           def initialize(attributes)
-            @options = attributes['options'].map { |json| Option.new(json) } if attributes.key?('options')
-            @count = attributes['optionsCount']
+            @interior, @exterior, @roof, @interior_trim = [], [], [], []
+            @mechanical, @package, @aditional_fees, @other = [], [], [], []
+
+            attributes['options'].each do |category_with_option|
+              category = category_with_option['category']
+              options = category_with_option['options']
+              if    category == "Interior"        then @interior        = options.map { |json| Option.new(json) } 
+              elsif category == "Exterior"        then @exterior        = options.map { |json| Option.new(json) } 
+              elsif category == "Roof"            then @roof            = options.map { |json| Option.new(json) } 
+              elsif category == "Interior Trim"   then @interior_trim   = options.map { |json| Option.new(json) } 
+              elsif category == "Mechanical"      then @mechanical      = options.map { |json| Option.new(json) } 
+              elsif category == "Package"         then @package         = options.map { |json| Option.new(json) } 
+              elsif category == "Additional Fees" then @additional_fees = options.map { |json| Option.new(json) } 
+              elsif category == "Other"           then @other           = options.map { |json| Option.new(json) } 
+              end
+            end
+            # @options = attributes['options'].map { |json| Option.new(json) } if attributes.key?('options')
+            # @count = attributes['optionsCount']
           end
 
           def self.find(style_id, api_params = {})
@@ -46,9 +61,10 @@ module Edmunds
             @availability = attributes['availability']
             @manufacture_option_name = attributes['manufactureOptionName']
             @manufacture_option_code = attributes['manufactureOptionCode']
+            @equipment = attributes['equipment']
             @category = attributes['category']
             @attributes = attributes['attributes']
-            @equipment = attributes['equipment']
+            @price = attributes['price']
           end
 
           def self.find(option_id, api_params = {})
