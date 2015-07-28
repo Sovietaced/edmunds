@@ -38,11 +38,28 @@ module Edmunds
         end
 
         class Engine
-          attr_reader :id
+          attr_reader :code, :compression_ratio, :compressor_type, :configuration, :cylinder, :displacement, :equipment_type, :fuel_type,
+            :horsepower, :id, :manufacturer_engine_code, :name, :rpm, :size, :torque, :total_valves, :type, :valve
 
           def initialize(attributes)
+            @code = attributes['code']
+            @compression_ratio = attributes['compressionRatio']
+            @compressor_type = attributes['compressorType']
+            @configuration = attributes['configuration']
+            @cylinder = attributes['cylinder']
+            @displacement = attributes['displacement']
+            @equipment_type = attributes['equipmentType']
+            @fuel_type = attributes['fuelType']
+            @horsepower = attributes['horsepower']
             @id = attributes['id']
-            #TODO
+            @manufacturer_engine_code = attributes['manufacturerEngineCode']
+            @name = attributes['name']
+            @rpm = attributes['rpm']
+            @size = attributes['size']
+            @torque = attributes['torque']
+            @total_valves = attributes['totalValves']
+            @type = attributes['type']
+            @valve = attributes['valve']
           end
 
           def self.find(engine_id, api_params = {})
