@@ -19,7 +19,19 @@ module Edmunds
           end
 
           def self.find(style_id, api_params = {})
-            response = Edmunds::Api.get("#{STYLE_API_URL}/#{style_id}/options", api_params)
+            response = Edmunds::Api.get("#{STYLE_API_URL}/#{style_id}/options") do |request|
+              request.raw_parameters = api_params
+
+              request.allowed_parameters = {
+                  category: %w[Interior Exterior Roof Interior\ Trim Mechanical Package Additional\ Fees Other],
+                  fmt: %w[json]
+              }
+
+              request.default_parameters = { fmt: 'json' }
+
+              request.required_parameters = %w[fmt]
+            end
+
             attributes = JSON.parse(response.body)
             new(attributes)
           end
@@ -52,7 +64,18 @@ module Edmunds
           end
 
           def self.find(option_id, api_params = {})
-            response = Edmunds::Api.get("#{OPTIONS_API_URL}/#{option_id}", api_params)
+            response = Edmunds::Api.get("#{OPTIONS_API_URL}/#{option_id}") do |request|
+              request.raw_parameters = api_params
+
+              request.allowed_parameters = {
+                  fmt: %w[json]
+              }
+
+              request.default_parameters = { fmt: 'json' }
+
+              request.required_parameters = %w[fmt]
+            end
+
             attributes = JSON.parse(response.body)
             new(attributes)
           end

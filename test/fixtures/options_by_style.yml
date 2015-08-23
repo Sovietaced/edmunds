@@ -1,0 +1,137 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.edmunds.com/api/vehicle/v2/styles/200477465/options?api_key=EDMUNDS_API_KEY&fmt=json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=1200
+      Content-Type:
+      - application/json
+      Date:
+      - Sun, 23 Aug 2015 06:25:40 GMT
+      Server:
+      - Apache-Coyote/1.1
+      Set-Cookie:
+      - content-targeting=US, CA, UNIONCITY, 807, 37.5970, -122.059, 94587, vhigh,
+        5000, http
+      - device-characterization=, , false, false, , , ,
+      X-Akamai-Device-Characteristics:
+      - device_os=,device_os_version=,is_mobile=false,is_tablet=false,physical_screen_height=,physical_screen_width=,resolution_height=,resolution_width=
+      X-Akamai-Edgescape:
+      - georegion=246,country_code=US,region_code=CA,city=UNIONCITY,dma=807,pmsa=5775,msa=7362,areacode=510,county=ALAMEDA,fips=06001,lat=37.5970,long=-122.059,timezone=PST,zip=94587,continent=NA,throughput=vhigh,bw=5000,asnum=33651
+      X-Mashery-Responder:
+      - prod-j-worker-us-east-1d-60.mashery.com
+      Content-Length:
+      - '10228'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"options":[{"id":"200477500","name":"Audi Guard Premium Textile Floor
+        Mats","description":"Set of 4 heavy duty textile mats with A6 logo, black
+        with silver piping","equipmentType":"OPTION","availability":"All","price":{"baseMSRP":195.0,"baseInvoice":181.0,"estimateTmv":false},"manufactureOptionName":"Audi
+        Guard Premium Textile Floor Mats","manufactureOptionCode":"6TM","category":"Interior","attributes":[{"name":"Floor
+        Mats","value":"floor mats"},{"name":"2nd Row Floor Mats","value":"rear floor
+        mats"},{"name":"Floor Mat Material","value":"carpet"}],"equipment":[]},{"id":"200477506","name":"Bose
+        Sound System W/Subwoofer","description":"630-watts Bose Premium Surround System
+        with 14 speakers; AudioPilot noise compensation","equipmentType":"OPTION","availability":"All","price":{"baseMSRP":850.0,"baseInvoice":791.0,"estimateTmv":false},"manufactureOptionName":"Bose
+        Sound System w/Subwoofer","manufactureOptionCode":"8RY","category":"Interior","attributes":[],"equipment":[]},{"id":"200477507","name":"Audi
+        First Aid Kit","equipmentType":"OPTION","availability":"All","price":{"baseMSRP":45.0,"baseInvoice":42.0,"estimateTmv":false},"manufactureOptionName":"Audi
+        First Aid Kit","manufactureOptionCode":"AFA","category":"Safety","attributes":[{"name":"First
+        Aid Kit","value":"first aid kit"}],"equipment":[]},{"id":"200477509","name":"Front
+        License Plate Holder","description":"Front license plate holder for states
+        which require front license plates","equipmentType":"OPTION","availability":"All","price":{"baseMSRP":0.0,"baseInvoice":0.0,"estimateTmv":false},"manufactureOptionName":"Front
+        License Plate Holder","manufactureOptionCode":"6W3","category":"Exterior","attributes":[],"equipment":[]},{"id":"200477751","name":"Audi
+        Guard Protection Kit","description":"All-weather floor mats; Cargo mat","equipmentType":"OPTION","availability":"All","price":{"baseMSRP":295.0,"baseInvoice":274.0,"estimateTmv":false},"manufactureOptionName":"Audi
+        Guard Protection Kit","manufactureOptionCode":"PK6","category":"Interior","attributes":[{"name":"Floor
+        Mats","value":"floor mats"},{"name":"2nd Row Floor Mats","value":"rear floor
+        mats"},{"name":"Cargo Area Floor Mat","value":"cargo area floor mat"},{"name":"Floor
+        Mat Material","value":"vinyl/rubber"}],"equipment":[]},{"id":"200477750","name":"Audi
+        Guard Cargo Mat","description":"Trunk liner with A6 logo","equipmentType":"OPTION","availability":"All","price":{"baseMSRP":185.0,"baseInvoice":172.0,"estimateTmv":false},"manufactureOptionName":"Audi
+        Guard Cargo Mat","manufactureOptionCode":"6TL","category":"Interior","attributes":[{"name":"Cargo
+        Area Floor Mat","value":"cargo area floor mat"}],"equipment":[]},{"id":"200477489","name":"Cold
+        Weather Package","description":"Multi-level heated rear seats; Heated steering
+        wheel","equipmentType":"OPTION","availability":"All","price":{"baseMSRP":500.0,"baseInvoice":467.0,"estimateTmv":false},"manufactureOptionName":"Cold
+        Weather Package","manufactureOptionCode":"PAW","category":"Package","attributes":[{"name":"Heated
+        2nd Row","value":"multi-level heating"},{"name":"Heated Steering Wheel","value":"heated
+        steering wheel"}],"equipment":[]},{"id":"200477494","name":"19\" Sport Package","description":"19\"
+        5-double-spoke design wheels with 255/40R19 all-season tires; Sport suspension;
+        Three-spoke multifunction steering wheel with shift paddles","equipmentType":"OPTION","availability":"2.0","price":{"baseMSRP":1500.0,"baseInvoice":1397.0,"estimateTmv":false},"manufactureOptionName":"19\"
+        Sport Package","manufactureOptionCode":"PPT","category":"Package","attributes":[{"name":"Suspension
+        Class","value":"sport-performance"},{"name":"Cruise Controls On Steering Wheel","value":"cruise
+        controls"},{"name":"Transmission Controls On Steering Wheel","value":"gear
+        shift controls"},{"name":"Audio Controls On Steering Wheel","value":"audio
+        controls"}],"equipment":[]},{"id":"200477510","name":"Front Grille Filler
+        Panel","description":"Front grille filler panel with chrome strips for states
+        without license plate requirement","equipmentType":"OPTION","availability":"All","price":{"baseMSRP":0.0,"baseInvoice":0.0,"estimateTmv":false},"manufactureOptionName":"Front
+        Grille Filler Panel","manufactureOptionCode":"6W9","category":"Exterior","attributes":[],"equipment":[]},{"id":"200477493","name":"Media
+        Package","description":"Includes the following AMI cables: mini-USB, RCA,
+        USB and iPod with Apple license chip","equipmentType":"OPTION","availability":"All","price":{"baseMSRP":295.0,"baseInvoice":274.0,"estimateTmv":false},"manufactureOptionName":"Media
+        Package","manufactureOptionCode":"MPK","category":"Package","attributes":[],"equipment":[]},{"id":"200477511","name":"Audi
+        Guard All-Weather Floor Mats W/A6 Logo","description":"Set of 4 black rubber
+        mats with A6 logo","equipmentType":"OPTION","availability":"All","price":{"baseMSRP":195.0,"baseInvoice":181.0,"estimateTmv":false},"manufactureOptionName":"Audi
+        Guard All-Weather Floor Mats w/A6 Logo","manufactureOptionCode":"6FL","category":"Interior","attributes":[{"name":"Floor
+        Mats","value":"floor mats"},{"name":"2nd Row Floor Mats","value":"rear floor
+        mats"},{"name":"Floor Mat Material","value":"vinyl/rubber"}],"equipment":[]},{"id":"200477496","name":"Power
+        Rear Window Sun Shade And Manual Rear Side Sun Shades","equipmentType":"OPTION","availability":"All","price":{"baseMSRP":500.0,"baseInvoice":467.0,"estimateTmv":false},"manufactureOptionName":"Power
+        Rear Window Sun Shade and Manual Rear Side Sun Shades","manufactureOptionCode":"3Y5","category":"Interior","attributes":[{"name":"Rear
+        Window Sunshade","value":"power"},{"name":"Side Window Sunshade","value":"manual"}],"equipment":[]},{"id":"200477514","name":"Headliner
+        In Black Cloth","equipmentType":"OPTION","availability":"All","price":{"baseMSRP":0.0,"baseInvoice":0.0,"estimateTmv":false},"manufactureOptionName":"Headliner
+        in Black Cloth","manufactureOptionCode":"6NQ","category":"Interior","attributes":[],"equipment":[]},{"id":"200477515","name":"Audi
+        Side Assist/Audi Pre Sense Rear/Power Folding Mirrors","description":"Audi
+        side assist monitors the blind spot areas to the rear and sides and informs
+        the driver via LED lights within the exterior mirror; Audi pre sense rear
+        adjusts seats and head restraints for maximum support when a collision is
+        detected from the rear; Power folding mirrors","equipmentType":"OPTION","availability":"All","price":{"baseMSRP":600.0,"baseInvoice":558.0,"estimateTmv":false},"manufactureOptionName":"Audi
+        Side Assist/Audi Pre Sense Rear/Power Folding Mirrors","manufactureOptionCode":"PCH","category":"Safety","attributes":[{"name":"Accident
+        Avoidance System","value":"blind spot warning"},{"name":"Pre Collision Safety
+        System","value":"pre-collision safety system"},{"name":"Power Retractable
+        Side Mirrors","value":"power retractable mirrors"}],"equipment":[]},{"id":"200477491","name":"Cargo
+        Net","equipmentType":"OPTION","availability":"All","price":{"baseMSRP":130.0,"baseInvoice":121.0,"estimateTmv":false},"manufactureOptionName":"Cargo
+        Net","manufactureOptionCode":"A6N","category":"Package","attributes":[{"name":"Cargo
+        Net","value":"cargo net"}],"equipment":[]},{"id":"200477513","name":"Rear
+        Side Airbags","equipmentType":"OPTION","availability":"All","price":{"baseMSRP":350.0,"baseInvoice":325.0,"estimateTmv":false},"manufactureOptionName":"Rear
+        Side Airbags","manufactureOptionCode":"4X4","category":"Safety","attributes":[{"name":"Side
+        Airbags","value":"dual front and dual rear"}],"equipment":[]},{"id":"200477518","name":"Audi
+        Guard Wheel Lock Kit","equipmentType":"OPTION","availability":"All","price":{"baseMSRP":105.0,"baseInvoice":98.0,"estimateTmv":false},"manufactureOptionName":"Audi
+        Guard Wheel Lock Kit","manufactureOptionCode":"WL3","category":"Exterior","attributes":[],"equipment":[]},{"id":"200736689","name":"Audi
+        MMI Navigation Plus Package","description":"MMI navigation plus with Google
+        Earth navigation; 8\" central display screen; Control knob and button on center
+        console operates climate control, central locking, instrument cluster, vehicle
+        diagnostics, cellular phone, navigation, CD and radio functions, Bluetooth
+        streaming audio, HD radio and MMI jukebox; 7\" color driver information system;
+        Trip computer; Audi connect with online services","equipmentType":"OPTION","availability":"All","price":{"baseMSRP":2450.0,"baseInvoice":2279.0,"estimateTmv":false},"manufactureOptionName":"Audi
+        MMI Navigation Plus Package","manufactureOptionCode":"WTH","category":"Interior","attributes":[{"name":"Trip
+        Computer","value":"trip computer"},{"name":"Mobile Router","value":"mobile
+        router"},{"name":"Bluetooth","value":"Bluetooth"}],"equipment":[]},{"id":"200477743","name":"19\"
+        15-Spoke-Star-Design Wheels With All-Season Tires","description":"19\" 15-spoke-star-design
+        wheels with 255/40R19 all-season tires","equipmentType":"OPTION","availability":"All","price":{"baseMSRP":800.0,"baseInvoice":744.0,"estimateTmv":false},"manufactureOptionName":"19\"
+        15-Spoke-Star-Design Wheels with All-Season Tires","manufactureOptionCode":"PRY","category":"Exterior","attributes":[],"equipment":[]},{"id":"200477748","name":"Audi
+        Cargo Box","description":"Collapsible fabric storage box for trunk with Audi
+        rings logo","equipmentType":"OPTION","availability":"All","price":{"baseMSRP":70.0,"baseInvoice":65.0,"estimateTmv":false},"manufactureOptionName":"Audi
+        Cargo Box","manufactureOptionCode":"ALB","category":"Interior","attributes":[{"name":"Cargo
+        Area Storage Organizer","value":"folding"}],"equipment":[]},{"id":"200490737","name":"19\"
+        Summer Tires","equipmentType":"OPTION","availability":"All","price":{"baseMSRP":0.0,"baseInvoice":0.0,"estimateTmv":false},"manufactureOptionName":"19\"
+        Summer Tires","manufactureOptionCode":"HE9","category":"Exterior","attributes":[{"name":"Suspension
+        Class","value":"sport-performance"}],"equipment":[]},{"id":"200477499","name":"Audi
+        Base Bars","description":"Base bars; Storage bag","equipmentType":"OPTION","availability":"All","price":{"baseMSRP":460.0,"baseInvoice":427.0,"estimateTmv":false},"manufactureOptionName":"Audi
+        Base Bars","manufactureOptionCode":"6BB","category":"Exterior","attributes":[{"name":"Roof
+        Rack","value":"roof rack"}],"equipment":[]}],"optionsCount":22}'
+    http_version: 
+  recorded_at: Sun, 23 Aug 2015 06:25:40 GMT
+recorded_with: VCR 2.9.3

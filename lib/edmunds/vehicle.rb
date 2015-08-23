@@ -3,7 +3,6 @@ require 'edmunds'
 module Edmunds
   module Vehicle
     # Static Vehicle API data
-    API_URL_V1 = Edmunds::Api::URL_V1 + '/vehicle'
     API_URL_V2 = Edmunds::Api::URL + '/vehicle/v2'
     VEHICLE_TYPES      = %w[ Car Truck SUV Van Minivan ]
     VEHICLE_CATEGORIES = %w[ 4dr\ Hatchback 2dr\ Hatchback 2dr\ SUV 4dr\ SUV

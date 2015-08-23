@@ -18,7 +18,19 @@ module Edmunds
           end
 
           def self.find(style_id, api_params = {})
-            response = Edmunds::Api.get("#{STYLE_API_URL}/#{style_id}/colors", api_params)
+            response = Edmunds::Api.get("#{STYLE_API_URL}/#{style_id}/colors") do |request|
+              request.raw_parameters = api_params
+
+              request.allowed_parameters = {
+                  category: %w[Interior Exterior],
+                  fmt: %w[json]
+              }
+
+              request.default_parameters = { fmt: 'json' }
+
+              request.required_parameters = %w[fmt]
+            end
+
             attributes = JSON.parse(response.body)
             new(attributes)
           end
@@ -47,7 +59,18 @@ module Edmunds
           end
 
           def self.find(color_id, api_params = {})
-            response = Edmunds::Api.get("#{COLORS_API_URL}/#{color_id}", api_params)
+            response = Edmunds::Api.get("#{COLORS_API_URL}/#{color_id}") do |request|
+              request.raw_parameters = api_params
+
+              request.allowed_parameters = {
+                  fmt: %w[json]
+              }
+
+              request.default_parameters = { fmt: 'json' }
+
+              request.required_parameters = %w[fmt]
+            end
+
             attributes = JSON.parse(response.body)
             new(attributes)
           end

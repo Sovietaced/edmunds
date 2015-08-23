@@ -7,8 +7,8 @@ class OptionTest < Minitest::Test
       assert_equal Edmunds::Vehicle::Specification::Option::OptionsByStyle, options_by_style.class
 
       # Check that the fields are accessible by our model
-      assert_equal 20, options_by_style.options.count
-      assert_equal 20, options_by_style.count
+      assert_equal 22, options_by_style.options.count
+      assert_equal 22, options_by_style.count
     end
   end
 
