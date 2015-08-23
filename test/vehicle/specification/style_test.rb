@@ -70,7 +70,7 @@ class StyleTest < Minitest::Test
       assert_equal Edmunds::Vehicle::Specification::Style::StylesCountMake, styles_count_make.class
 
       # Check that the fields are accessible by our model
-      assert_equal 1891, styles_count_make.count
+      assert_equal 1923, styles_count_make.count
     end
   end
 
@@ -80,7 +80,7 @@ class StyleTest < Minitest::Test
       assert_equal Edmunds::Vehicle::Specification::Style::StylesCount, styles_count.class
 
       # Check that the fields are accessible by our model
-      assert_equal 45_322, styles_count.count
+      assert_equal 46_398, styles_count.count
     end
   end
 end

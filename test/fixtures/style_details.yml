@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.edmunds.com/api/vehicle/v2/honda/accord/2013/styles?api_key=EDMUNDS_API_KEY
+    uri: https://api.edmunds.com/api/vehicle/v2/honda/accord/2013/styles?api_key=EDMUNDS_API_KEY&fmt=json&view=basic
     body:
       encoding: US-ASCII
       string: ''
@@ -23,15 +23,19 @@ http_interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 04 Mar 2015 10:14:56 GMT
+      - Sun, 23 Aug 2015 06:07:45 GMT
       Server:
       - Apache-Coyote/1.1
       Set-Cookie:
-      - LAX1_RSID=dad5644335ddf0f0dede129fff5d2d9f;Max-Age=30;Path=/;Version=1;Domain=.edmunds-media.com;
-      X-Environment:
-      - Prod-3
+      - content-targeting=US, CA, UNIONCITY, 807, 37.5970, -122.059, 94587, vhigh,
+        5000, http
+      - device-characterization=, , false, false, , , ,
+      X-Akamai-Device-Characteristics:
+      - device_os=,device_os_version=,is_mobile=false,is_tablet=false,physical_screen_height=,physical_screen_width=,resolution_height=,resolution_width=
+      X-Akamai-Edgescape:
+      - georegion=246,country_code=US,region_code=CA,city=UNIONCITY,dma=807,pmsa=5775,msa=7362,areacode=510,county=ALAMEDA,fips=06001,lat=37.5970,long=-122.059,timezone=PST,zip=94587,continent=NA,throughput=vhigh,bw=5000,asnum=33651
       X-Mashery-Responder:
-      - prod-j-worker-us-east-1b-59.mashery.com
+      - prod-j-worker-us-east-1d-70.mashery.com
       Content-Length:
       - '6591'
       Connection:
@@ -82,5 +86,5 @@ http_interactions:
         4dr Sedan (2.4L 4cyl CVT)","year":{"id":100537293,"year":2013},"submodel":{"body":"Sedan","modelName":"Accord
         Sedan","niceName":"sedan"},"trim":"Sport"}],"stylesCount":21}'
     http_version: 
-  recorded_at: Wed, 04 Mar 2015 10:21:25 GMT
+  recorded_at: Sun, 23 Aug 2015 06:07:45 GMT
 recorded_with: VCR 2.9.3

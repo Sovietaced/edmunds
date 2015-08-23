@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.edmunds.com/api/vehicle/v2/honda/models/count?api_key=EDMUNDS_API_KEY
+    uri: https://api.edmunds.com/api/vehicle/v2/honda/models/count?api_key=EDMUNDS_API_KEY&fmt=json&view=basic
     body:
       encoding: US-ASCII
       string: ''
@@ -23,16 +23,19 @@ http_interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 04 Mar 2015 10:04:32 GMT
+      - Sun, 23 Aug 2015 06:07:40 GMT
       Server:
       - Apache-Coyote/1.1
       Set-Cookie:
-      - LAX1_RSID=a3a8471f00b6625cdd5c97d444c27453;Max-Age=30;Path=/;Version=1;Domain=.edmunds-media.com;
-      - LAX1_RSID=a3a8471f00b6625cdd5c97d444c27453;Max-Age=30;Path=/;Version=1;Domain=.edmunds.com;
-      X-Environment:
-      - Prod-3
+      - content-targeting=US, CA, UNIONCITY, 807, 37.5970, -122.059, 94587, vhigh,
+        5000, http
+      - device-characterization=, , false, false, , , ,
+      X-Akamai-Device-Characteristics:
+      - device_os=,device_os_version=,is_mobile=false,is_tablet=false,physical_screen_height=,physical_screen_width=,resolution_height=,resolution_width=
+      X-Akamai-Edgescape:
+      - georegion=246,country_code=US,region_code=CA,city=UNIONCITY,dma=807,pmsa=5775,msa=7362,areacode=510,county=ALAMEDA,fips=06001,lat=37.5970,long=-122.059,timezone=PST,zip=94587,continent=NA,throughput=vhigh,bw=5000,asnum=33651
       X-Mashery-Responder:
-      - prod-j-worker-us-east-1e-73.mashery.com
+      - prod-j-worker-us-east-1b-59.mashery.com
       Content-Length:
       - '18'
       Connection:
@@ -41,5 +44,5 @@ http_interactions:
       encoding: UTF-8
       string: '{"modelsCount":21}'
     http_version: 
-  recorded_at: Wed, 04 Mar 2015 10:04:32 GMT
+  recorded_at: Sun, 23 Aug 2015 06:07:40 GMT
 recorded_with: VCR 2.9.3
