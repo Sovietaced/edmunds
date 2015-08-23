@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [0.0.6] - 08/23/2015
+### Added
+- Support for optional parameters
+- Parameter sanitization
+
 ## [0.0.5] - 03/8/2015
 ### Added
 - Completed Support for color/option APIs
