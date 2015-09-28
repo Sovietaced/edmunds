@@ -32,11 +32,21 @@ module Edmunds
         end
 
         class Full
-          attr_reader :make, :model, :years, :trim, :description, :transmission, :engine, :mpg_highway, :mpg_city
+          attr_reader :make, 
+                      :model, 
+                      :engine,
+                      :transmission,
+                      :categories,
+                      :years, 
+                      :trim, 
+                      :description, 
+                      :mpg_highway, 
+                      :mpg_city
 
           def initialize(attributes)
             @make = Edmunds::Vehicle::Specification::Make::Make.new(attributes['make'])
             @model = Edmunds::Vehicle::Specification::Model::Model.new(attributes['model'])
+            @categories = attributes['categories']
             @years = attributes['years'].map { |json| Edmunds::Vehicle::Specification::ModelYear::ModelYear.new(json) } if attributes.key?('years') 
             @mpg_highway = attributes['MPG']['highway']
             @mpg_city = attributes['MPG']['city']
