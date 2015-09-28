@@ -46,7 +46,7 @@ module Edmunds
           def initialize(attributes)
             @make = Edmunds::Vehicle::Specification::Make::Make.new(attributes['make'])
             @model = Edmunds::Vehicle::Specification::Model::Model.new(attributes['model'])
-            @categories = attributes['categories']
+            @categories = attributes['categories'] || {}
             @years = attributes['years'].map { |json| Edmunds::Vehicle::Specification::ModelYear::ModelYear.new(json) } if attributes.key?('years') 
             @mpg_highway = attributes['MPG']['highway']
             @mpg_city = attributes['MPG']['city']
