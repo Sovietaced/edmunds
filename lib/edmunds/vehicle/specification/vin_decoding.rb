@@ -46,10 +46,10 @@ module Edmunds
           def initialize(attributes)
             @make = Edmunds::Vehicle::Specification::Make::Make.new(attributes['make'])
             @model = Edmunds::Vehicle::Specification::Model::Model.new(attributes['model'])
-            @categories = attributes['categories'] || {}
-            @years = attributes['years'].map { |json| Edmunds::Vehicle::Specification::ModelYear::ModelYear.new(json) } if attributes.key?('years') 
-            @mpg_highway = attributes['MPG']['highway']
-            @mpg_city = attributes['MPG']['city']
+            @categories = attributes.fetch('categories', {})
+            @years = attributes.fetch('years', []).map { |json| Edmunds::Vehicle::Specification::ModelYear::ModelYear.new(json) } if attributes.key?('years') 
+            @mpg_highway = attributes.fetch('MPG', {}).fetch('highway', {})
+            @mpg_city = attributes.fetch('MPG', {}).fetch('city', {})
           end
 
           # Get all vehicle details from make, model, year and fuel type to list of options, features and standard equipment. All this information is returned by decoding the vehicle's VIN.
