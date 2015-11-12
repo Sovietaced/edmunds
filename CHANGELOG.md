@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [0.0.7] - 11/12/2015
+### Added
+- Fix for error handling
+
 ## [0.0.6] - 08/23/2015
 ### Added
 - Support for optional parameters
