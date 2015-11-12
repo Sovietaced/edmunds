@@ -1,0 +1,48 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.edmunds.com/api/vehicle/v2/vins/JHMAP00000T000000?api_key=EDMUNDS_API_KEY&fmt=json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Cache-Control:
+      - max-age=1200
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 12 Nov 2015 15:08:05 GMT
+      Server:
+      - Apache-Coyote/1.1
+      Set-Cookie:
+      - content-targeting=DE, NW, KOLN, , 50.93, 6.95, , vhigh, 5000, http
+      - device-characterization=, , false, false, , , ,
+      X-Akamai-Device-Characteristics:
+      - device_os=,device_os_version=,is_mobile=false,is_tablet=false,physical_screen_height=,physical_screen_width=,resolution_height=,resolution_width=
+      X-Akamai-Edgescape:
+      - georegion=85,country_code=DE,region_code=NW,city=KOLN,dma=,pmsa=,msa=,areacode=,county=,fips=,lat=50.93,long=6.95,timezone=GMT+1,zip=,continent=EU,throughput=vhigh,bw=5000,asnum=3320
+      X-Mashery-Responder:
+      - prod-j-worker-us-east-1e-108.mashery.com
+      Content-Length:
+      - '148'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"status":"NOT_FOUND","errorType":"RESOURCE_NOT_FOUND","message":"Information
+        not found for this VIN.","moreInfoUrl":"http://developer.edmunds.com"}'
+    http_version: 
+  recorded_at: Thu, 12 Nov 2015 15:08:05 GMT
+recorded_with: VCR 3.0.0

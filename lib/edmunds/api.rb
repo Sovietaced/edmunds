@@ -21,8 +21,8 @@ module Edmunds
       def initialize(response)
         error = JSON.parse(response.body)
 
-        @error_type = error['error']['errorType']
-        @message = error['error']['message']
+        @error_type = error['errorType']
+        @message = error['message']
       end
     end
   end
