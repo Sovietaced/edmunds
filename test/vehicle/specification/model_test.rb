@@ -13,6 +13,7 @@ class ModelTest < Minitest::Test
       # Check that the fields are accessible by our model
       assert_equal 'Honda_Accord', model.id
       assert_equal 'Accord', model.name
+      assert_equal 'accord', model.nice_name
       assert_equal 26, model.years.count
     end
   end

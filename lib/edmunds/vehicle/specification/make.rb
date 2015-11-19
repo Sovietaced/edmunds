@@ -38,11 +38,12 @@ module Edmunds
         end
 
         class Make
-          attr_reader :id, :name, :models
+          attr_reader :id, :name, :nice_name, :models
 
           def initialize(attributes)
             @id = attributes['id']
             @name = attributes['name']
+            @nice_name = attributes['niceName']
             @models = attributes['models'].map { |json| Edmunds::Vehicle::Specification::Model::Model.new(json) } if attributes.key?('models')
           end
 
