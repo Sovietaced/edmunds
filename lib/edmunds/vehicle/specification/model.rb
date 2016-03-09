@@ -1,13 +1,15 @@
 require 'faraday'
 require 'json'
 
-MODEL_API_URL = Edmunds::Vehicle::API_URL_V2
-
 module Edmunds
   module Vehicle
     module Specification
       module Model
+
+        MODEL_API_URL = Edmunds::Vehicle::API_URL_V2
+
         class Model
+
           attr_reader :id, :name, :years
 
           def initialize(attributes)

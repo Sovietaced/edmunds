@@ -1,13 +1,13 @@
 require 'faraday'
 require 'json'
 
-STYLE_API_URL = Edmunds::Vehicle::API_URL_V2 + '/styles'
-COLORS_API_URL = Edmunds::Vehicle::API_URL_V2 + '/colors'
-
 module Edmunds
   module Vehicle
     module Specification
       module Color
+
+        STYLE_API_URL = Edmunds::Vehicle::API_URL_V2 + '/styles'
+        COLORS_API_URL = Edmunds::Vehicle::API_URL_V2 + '/colors'
         
         class ColorsByStyle
           attr_reader :colors, :count

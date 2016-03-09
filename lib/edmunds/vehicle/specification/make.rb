@@ -1,14 +1,15 @@
 require 'faraday'
 require 'json'
 
-MAKE_API_URL = Edmunds::Vehicle::API_URL_V2
-MAKES_API_URL = MAKE_API_URL + '/makes'
-MAKES_COUNT_API_URL = MAKES_API_URL + '/count'
-
 module Edmunds
   module Vehicle
     module Specification
       module Make
+
+        MAKE_API_URL = Edmunds::Vehicle::API_URL_V2
+        MAKES_API_URL = MAKE_API_URL + '/makes'
+        MAKES_COUNT_API_URL = MAKES_API_URL + '/count'
+        
         class Makes
           attr_reader :makes
 

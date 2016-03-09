@@ -1,12 +1,13 @@
 require 'faraday'
 require 'json'
 
-MODEL_YEAR_API_URL = Edmunds::Vehicle::API_URL_V2
-
 module Edmunds
   module Vehicle
     module Specification
       module ModelYear
+
+        MODEL_YEAR_API_URL = Edmunds::Vehicle::API_URL_V2
+
         class ModelYear
           attr_reader :id, :year, :styles
 
@@ -17,7 +18,7 @@ module Edmunds
           end
 
           def self.find(make_name, model_name, model_year, api_params = {})
-            response = Edmunds::Api.get("#{MODEL_API_URL}/#{make_name}/#{model_name}/#{model_year}") do |request|
+            response = Edmunds::Api.get("#{MODEL_YEAR_API_URL}/#{make_name}/#{model_name}/#{model_year}") do |request|
               request.raw_parameters = api_params
 
               request.allowed_parameters = {
@@ -48,7 +49,7 @@ module Edmunds
           end
 
           def self.find(make_name, model_name, api_params = {})
-            response = Edmunds::Api.get("#{MODEL_API_URL}/#{make_name}/#{model_name}/years") do |request|
+            response = Edmunds::Api.get("#{MODEL_YEAR_API_URL}/#{make_name}/#{model_name}/years") do |request|
               request.raw_parameters = api_params
 
               request.allowed_parameters = {
@@ -78,7 +79,7 @@ module Edmunds
           end
 
           def self.find(make_name, model_name, api_params = {})
-            response = Edmunds::Api.get("#{MODEL_API_URL}/#{make_name}/#{model_name}/years/count") do |request|
+            response = Edmunds::Api.get("#{MODEL_YEAR_API_URL}/#{make_name}/#{model_name}/years/count") do |request|
               request.raw_parameters = api_params
 
               request.allowed_parameters = {
