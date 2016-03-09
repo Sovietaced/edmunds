@@ -10,11 +10,12 @@ module Edmunds
 
         class Model
 
-          attr_reader :id, :name, :years
+          attr_reader :id, :name, :nice_name, :years
 
           def initialize(attributes)
             @id = attributes['id']
             @name = attributes['name']
+            @nice_name = attributes['niceName']
             @years = attributes['years'].map { |json| Edmunds::Vehicle::Specification::ModelYear::ModelYear.new(json) } if attributes.key?('years')
           end
 

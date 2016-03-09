@@ -13,6 +13,7 @@ class MakeTest < Minitest::Test
       # Check that the fields are accessible by our model
       assert_equal 200_000_001, make.id
       assert_equal 'Audi', make.name
+      assert_equal 'audi', make.nice_name
       assert_equal 35, make.models.count
     end
   end
