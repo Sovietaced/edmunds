@@ -1,13 +1,13 @@
 require 'faraday'
 require 'json'
 
-STYLE_API_URL = Edmunds::Vehicle::API_URL_V2 + '/styles'
-OPTIONS_API_URL = Edmunds::Vehicle::API_URL_V2 + '/options'
-
 module Edmunds
   module Vehicle
     module Specification
       module Option
+        
+        STYLE_API_URL = Edmunds::Vehicle::API_URL_V2 + '/styles'
+        OPTIONS_API_URL = Edmunds::Vehicle::API_URL_V2 + '/options'
         
         class OptionsByStyle
           attr_reader :options, 

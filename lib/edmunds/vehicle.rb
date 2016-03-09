@@ -1,5 +1,3 @@
-require 'edmunds'
-
 module Edmunds
   module Vehicle
     # Static Vehicle API data
