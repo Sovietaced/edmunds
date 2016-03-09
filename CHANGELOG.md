@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [0.0.8] - 13/8/2016
+### Added
+- Fix constant warning issue #10
+
 ## [0.0.7] - 11/12/2015
 ### Added
 - Fix for error handling
