@@ -12,9 +12,9 @@ module Edmunds
           attr_reader :make, :model, :year
 
           def initialize(attributes)
-            @make = attributes['make']['name']
-            @model = attributes['model']['name']
-            @year = attributes['year']
+            @make = attributes.try(:[], 'make').try(:[], 'name')
+            @model = attributes.try(:[], 'model').try(:[], 'name')
+            @year = attributes.try(:[], 'year')
           end
 
           # Get vehicle make, model, year, type, fuel type, number of cylinders and list of styles by decoding the vehicle's VIN.
@@ -32,22 +32,22 @@ module Edmunds
         end
 
         class Full
-          attr_reader :make, 
-                      :model, 
+          attr_reader :make,
+                      :model,
                       :engine,
                       :transmission,
                       :categories,
-                      :years, 
-                      :trim, 
-                      :description, 
-                      :mpg_highway, 
+                      :years,
+                      :trim,
+                      :description,
+                      :mpg_highway,
                       :mpg_city
 
           def initialize(attributes)
             @make = Edmunds::Vehicle::Specification::Make::Make.new(attributes['make'])
             @model = Edmunds::Vehicle::Specification::Model::Model.new(attributes['model'])
             @categories = attributes.fetch('categories', {})
-            @years = attributes.fetch('years', []).map { |json| Edmunds::Vehicle::Specification::ModelYear::ModelYear.new(json) } if attributes.key?('years') 
+            @years = attributes.fetch('years', []).map { |json| Edmunds::Vehicle::Specification::ModelYear::ModelYear.new(json) } if attributes.key?('years')
             @mpg_highway = attributes.fetch('MPG', {}).fetch('highway', {})
             @mpg_city = attributes.fetch('MPG', {}).fetch('city', {})
           end
