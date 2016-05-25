@@ -13,27 +13,27 @@ module Edmunds
             :doors, :colors, :options, :manufacturer_code, :price, :categories, :states, :squish_vins, :mpg
 
           def initialize(attributes, view = nil)
-            @id       = attributes['id']
-            @name     = attributes['name']
-            @year     = attributes["year"]["year"]
-            @make     = Edmunds::Vehicle::Specification::Make::Make.new(attributes['make'])
-            @model    = Edmunds::Vehicle::Specification::Model::Model.new(attributes['model'])
-            @trim     = attributes['trim']
-            @body     = attributes['submodel']['body']
+            @id       = attributes.try(:[], 'id')
+            @name     = attributes.try(:[], 'name')
+            @year     = attributes.try(:[], 'year').try(:[], 'year')
+            @make     = Edmunds::Vehicle::Specification::Make::Make.new(attributes.try(:[], 'make')) if attributes.try(:[], 'make')
+            @model    = Edmunds::Vehicle::Specification::Model::Model.new(attributes.try(:[], 'model')) if attributes.try(:[], 'model')
+            @trim     = attributes.try(:[], 'trim')
+            @body     = attributes.try(:[], 'submodel').try(:[], 'body')
 
             if view == 'full'
-              @engine             = Edmunds::Vehicle::Specification::Engine::Engine.new(attributes['engine'])
-              @transmission       = Edmunds::Vehicle::Specification::Transmission::Transmission.new(attributes['transmission'])
-              @driven_wheels      = Edmunds::Vehicle::Specification::Drivetrain::Drivetrain.new(attributes['drivenWheels'])
-              @doors              = attributes['numOfDoors']
+              @engine             = Edmunds::Vehicle::Specification::Engine::Engine.new(attributes.try(:[], 'engine')) if attributes.try(:[], 'engine')
+              @transmission       = Edmunds::Vehicle::Specification::Transmission::Transmission.new(attributes.try(:[], 'transmission')) if attributes.try(:[], 'transmission')
+              @driven_wheels      = Edmunds::Vehicle::Specification::Drivetrain::Drivetrain.new(attributes.try(:[], 'drivenWheels')) if attributes.try(:[], 'drivenWheels')
+              @doors              = attributes.try(:[], 'numOfDoors')
               @options            = Edmunds::Vehicle::Specification::Option::OptionsByStyle.new(attributes)
               @colors             = Edmunds::Vehicle::Specification::Color::ColorsByStyle.new(attributes)
-              @manufacturer_code  = attributes['manufacturerCode']
-              @price              = attributes['price']
-              @categories         = attributes['categories']
-              @states             = attributes['states']
-              @squish_vins        = attributes['squishVins']
-              @mpg                = attributes['MPG']
+              @manufacturer_code  = attributes.try(:[], 'manufacturerCode')
+              @price              = attributes.try(:[], 'price')
+              @categories         = attributes.try(:[], 'categories')
+              @states             = attributes.try(:[], 'states')
+              @squish_vins        = attributes.try(:[], 'squishVins')
+              @mpg                = attributes.try(:[], 'MPG')
             end
           end
 
