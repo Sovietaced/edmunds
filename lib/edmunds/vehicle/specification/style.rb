@@ -9,25 +9,32 @@ module Edmunds
     module Specification
       module Style
         class Style
-          attr_reader :id, :name, :trim, :body, :year, :make_name, :model_name, :engine, :transmission, :driven_wheels, :colors, :options
+          attr_reader :id, :name, :year, :make, :model, :trim, :body, :engine, :transmission, :driven_wheels,
+            :doors, :colors, :options, :manufacturer_code, :price, :categories, :states, :squish_vins, :mpg
 
           def initialize(attributes, view = nil)
-            @id = attributes['id']
-            @name = attributes['name']
-            @trim = attributes['trim']
-            @body = attributes['submodel']['body']
+            @id       = attributes['id']
+            @name     = attributes['name']
+            @year     = attributes["year"]["year"]
+            @make     = Edmunds::Vehicle::Specification::Make::Make.new(attributes['make'])
+            @model    = Edmunds::Vehicle::Specification::Model::Model.new(attributes['model'])
+            @trim     = attributes['trim']
+            @body     = attributes['submodel']['body']
 
             if view == 'full'
-              @engine         = Edmunds::Vehicle::Specification::Engine::Engine.new(attributes['engine'])
-              @transmission   = Edmunds::Vehicle::Specification::Transmission::Transmission.new(attributes['transmission'])
-              @driven_wheels  = Edmunds::Vehicle::Specification::Drivetrain::Drivetrain.new(attributes['drivenWheels'])
-              @colors         = Edmunds::Vehicle::Specification::Color::ColorsByStyle.new(attributes)
-              @options        = Edmunds::Vehicle::Specification::Option::OptionsByStyle.new(attributes)
+              @engine             = Edmunds::Vehicle::Specification::Engine::Engine.new(attributes['engine'])
+              @transmission       = Edmunds::Vehicle::Specification::Transmission::Transmission.new(attributes['transmission'])
+              @driven_wheels      = Edmunds::Vehicle::Specification::Drivetrain::Drivetrain.new(attributes['drivenWheels'])
+              @doors              = attributes['numOfDoors']
+              @options            = Edmunds::Vehicle::Specification::Option::OptionsByStyle.new(attributes)
+              @colors             = Edmunds::Vehicle::Specification::Color::ColorsByStyle.new(attributes)
+              @manufacturer_code  = attributes['manufacturerCode']
+              @price              = attributes['price']
+              @categories         = attributes['categories']
+              @states             = attributes['states']
+              @squish_vins        = attributes['squishVins']
+              @mpg                = attributes['MPG']
             end
-            # TODO: Not sure whether this is valuable or not to expose...
-            # @year = attributes["year"]["year"]
-            # @make_name = attributes["make"]["name"]
-            # @model_name = attributes["model"]["name"]
           end
 
           def self.find(id, api_params = {})
